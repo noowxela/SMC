@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <style>
+        @import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
+        
+        @import url(https://fonts.googleapis.com/css?family=Titillium+Web:300);
+        .fa-2x {
+        font-size: 2em;
+        }
+        .fa {
+        position: relative;
+        display: table-cell;
+        width: 30px;
+        height: 36px;
+        text-align: center;
+        vertical-align: middle;
+        font-size:20px;
+        }
+
+
+        .main-menu:hover,nav.main-menu.expanded {
+        width:250px;
+        overflow:visible;
+        }
+
+        .main-menu {
+        background:#212121;
+        /* border-right:1px solid #e5e5e5; */
+        border:0;
+        position:absolute;
+        top:0;
+        bottom:0;
+        height:100%;
+        left:0;
+        width:30px;
+        overflow:hidden;
+        -webkit-transition:width .05s linear;
+        transition:width .05s linear;
+        /* -webkit-transform:translateZ(0) scale(1,1); */
+        z-index:1000;
+        }
+
+        .main-menu>ul {
+        margin:7px 0;
+        }
+
+        .main-menu li {
+        position:relative;
+        display:block;
+        width:250px;
+        }
+
+        .main-menu li>a {
+        position:relative;
+        display:table;
+        border-collapse:collapse;
+        border-spacing:0;
+        color:#999;
+        font-family: arial;
+        font-size: 14px;
+        text-decoration:none;
+        /* -webkit-transform:translateZ(0) scale(1,1); */
+        -webkit-transition:all .1s linear;
+        transition:all .1s linear;
+          
+        }
+
+        .main-menu .nav-icon {
+        position:relative;
+        display:table-cell;
+        width:60px;
+        height:36px;
+        text-align:center;
+        vertical-align:middle;
+        font-size:18px;
+        }
+
+        .main-menu .nav-text {
+        position:relative;
+        display:table-cell;
+        vertical-align:middle;
+        width:190px;
+          font-family: 'Titillium Web', sans-serif;
+        }
+
+        .main-menu>ul.logout {
+        position:absolute;
+        left:0;
+        bottom:0;
+        }
+
+        .no-touch .scrollable.hover {
+        overflow-y:hidden;
+        }
+
+        .no-touch .scrollable.hover:hover {
+        overflow-y:auto;
+        overflow:visible;
+        }
+
+        a:hover,a:focus {
+        text-decoration:none;
+        }
+
+        nav {
+        -webkit-user-select:none;
+        -moz-user-select:none;
+        -ms-user-select:none;
+        -o-user-select:none;
+        user-select:none;
+        }
+
+        nav ul,nav li {
+        outline:0;
+        margin:0;
+        padding:0;
+        }
+        .main-menu li:hover>a,nav.main-menu li.active>a,.dropdown-menu>li>a:hover,.dropdown-menu>li>a:focus,.dropdown-menu>.active>a,.dropdown-menu>.active>a:hover,.dropdown-menu>.active>a:focus,.no-touch .dashboard-page nav.dashboard-menu ul li:hover a,.dashboard-page nav.dashboard-menu ul li.active a {
+        color:#fff;
+        background-color:#5fa2db;
+        }
+        #area {
+        float: left;
+        background: #e2e2e2;
+        background-color: rgb(0, 0, 0);
+        width: 95%;
+        height: 100%;
+        margin-left:30px;
+        }
+        @font-face {
+          font-family: 'Titillium Web';
+          font-style: normal;
+          font-weight: 300;
+          src: local('Titillium WebLight'), local('TitilliumWeb-Light'), url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff) format('woff');
+        }
+
+
+        body, html{
+            margin: 0;
+            /* padding: 5px 5 0 5; */
+            /* font-family: "Trajan Pro Bold"; */
+            font-size: 100%;
+            background-color: rgb(0, 0, 0);
+            width: 95%;
+            height: 100%;  /* initially in vh */
+        }       
+        .card-title{
+            background-color: rgb(68, 198, 250);
+            /* font-size: 1.18em; */
+            font-size:3vw;
+            color:rgb(0, 0, 0);
+            text-align: center;
+        }
+        .pic-title{
+          background-color: #FFFAFA;
+          text-decoration: underline;
+          font-weight: bold;
+        }  
+        
+        .card-body{
+          background-color: #FFFAFA;
+          text-align: center;
+        }
+        
+        .main-content {
+            position: relative;
+            display: block;
+            height: 100%;
+            width: 100%;
+            background-color: rgb(0, 0, 0);
+            padding: 28px;
+        }
+
+        .container{
+            display: flex;
+            /* padding: 5px 5 0 5; */
+            min-width: 100%;
+            flex-direction: row;
+            justify-content: space-between;
+            text-align: left;
+            background-color: rgb(0, 0, 0);
+        }
+
+        .row {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-content: space-between;
+            flex-wrap: nowrap;
+            /* border: 1px solid white; */
+            width: 100%;
+            /* flex:1;    */
+            /* padding: 10px 10px 10px 40px; */
+        }
+
+        .column-a{
+            display: flex;
+            /* border: 1px solid black; */
+            width: 50%;
+            justify-content: flex-start;
+        }
+
+        .column-b{
+            display: flex;
+            /* border: 1px solid black; */
+            width: 50%;
+            justify-content: flex-end;
+        }
+        .column-full{
+            display: flex;
+            width: 100%;
+            justify-content: center;
+        }
+
+        table, th, td {
+          border: 1px solid black;
+          border-collapse: collapse;
+        }
+        th, td {
+          padding: 5px;
+          text-align: center;    
+        }
+
+    </style>
+  </head>
+
+  <body>
+    <div class="w3-main w3-content" id="area">
+
+      <div class='main-content'>
+      
+        <!-- big title -->
+        <div class= "card-title" style="text-align: center;">
+
+            <h1 class= "card-title"style="background-image: linear-gradient(to left, rgba(255,0,0,0), rgba(255,0,0,1))">CocaCola vs Pepsi </h1>
+          
+        </div>
+  
+        <br>
+  
+        <br> 
+        <!-- # number of followers and friends row -->
+        <div class='container'>
+          
+          <div class='row'>
+            
+
+            <div class='column-full'>
+
+              <div class='card' style='background-color: #FFFAFA; width:100%; justify-content: flex-start;'>
+
+                <table style="width:100%">
+                  <tr>
+                    <th colspan="3">By 4/1/2020</th>
+                  </tr>
+                  <tr>
+                    <th></th>
+                    <th style="background-color: rgba(255, 0, 0, 0.842)">CocaCola</th>
+                    <th style="background-color: rgb(37, 37, 187); color: white;">Pepsi</th>
+
+                    <!-- <th></th> -->
+                    
+                  </tr>
+                  <tr>
+                    <td>No. of Followers:</td>
+                    <td>3341575</td>
+                    <td>3015813</td>
+                  </tr>
+                  <tr>
+                    <td>No. of Friends:</td>
+                    <td>61493</td>
+                    <td>39874</td>
+                  </tr>
+                </table>
+
+              </div>
+
+
+            </div>
+
+  
+          </div>
+    
+        </div>
+  
+        <br> 
+        <!-- # Deg of centrality row -->
+        <div class='container'>
+          
+          <div class='row'>
+            
+
+            <div class='column-a'>
+              <div class='card' style='background-color: #FFFAFA; width:100%; justify-content: flex-start;'>
+                <div class='card-body' >
+                  <p class="pic-title"id="caption">Deg of centrality of follower</p>
+                  <img src="static/img/Degree of Centrality of Followers_v2.png" width='80%' height='80%' onclick="onClick(this)" alt="Active Time">
+                  
+                </div>
+              </div>
+            </div>
+
+            <div class='column-b'>
+              <div class='card' style='background-color: #FFFAFA; width:95%; justify-content: flex-end;'>
+                <div class='card-body' >
+                  <p class="pic-title"id="caption">Deg of centrality of friend </p>
+                  <img src="static/img/Degree of Centrality of Friends_v2.png" width='80%' height='80%' onclick="onClick(this)" alt="Active Time">
+
+                </div>
+              </div>
+            </div>
+  
+          </div>
+    
+        </div>
+
+        <br> 
+        <!-- # top 5 friend  row -->
+        <div class='container'>
+          
+            <div class='row'>
+              
+
+              <div class='column-full'>
+                <div class='card' style='background-color: #FFFAFA; width:100%; justify-content: flex-start;'>
+                  <div class='card-body' >
+                    <p class="pic-title"id="caption">Top 5 friend</p>
+                    <img src="static/img/Top 5 Friend _v2.png" width='80%' height='80%' onclick="onClick(this)" alt="Active Time">
+                    
+                  </div>
+                </div>
+              </div>
+
+              <!-- <div class='column-b'>
+                <div class='card' style='background-color: #FFFAFA; width:95%; justify-content: flex-start;'>
+                  <div class='card-body' >
+                    <p class="pic-title"id="caption">Deg of centrality of friend </p>
+                    <img src="static/img/Degree of Centrality of Friends_v2.png" width='80%' height='80%' onclick="onClick(this)" alt="Active Time">
+
+                  </div>
+                </div>
+              </div> -->
+    
+            </div>
+    
+        </div>
+    
+
+        <br> 
+        <!-- # activetime  row -->
+        <div class='container'>
+          
+            <div class='row'>
+              
+
+              <div class='column-full'>
+                <div class='card' style='background-color: #FFFAFA; width:100%; justify-content: flex-start;'>
+                  <div class='card-body' >
+                    <p class="pic-title"id="caption">Active time</p>
+                    <img src="static/img/activetime_v2.png" width='80%' height='80%' onclick="onClick(this)" alt="Active Time">
+                    
+                  </div>
+                </div>
+              </div>
+
+              <!-- <div class='column-b'>
+                <div class='card' style='background-color: #FFFAFA; width:95%; justify-content: flex-start;'>
+                  <div class='card-body' >
+                    <p class="pic-title"id="caption">Deg of centrality of friend </p>
+                    <img src="static/img/Degree of Centrality of Friends_v2.png" width='80%' height='80%' onclick="onClick(this)" alt="Active Time">
+
+                  </div>
+                </div>
+              </div> -->
+    
+            </div>
+    
+        </div>
+    
+        <br> 
+        <!-- #  Festive tweets-->
+        <div class='container'>
+          
+            <div class='row'>
+              
+
+              <div class='column-a'>
+                <div class='card' style='background-color: #FFFAFA; width:100%; justify-content: flex-end;'>
+                  <div class='card-body' >
+                    <p class="pic-title"id="caption">Thanksgiving Day</p>
+                    <img src="static/img/Thanksgiving Day_v2.png" width='80%' height='80%' onclick="onClick(this)" alt="Active Time">
+                    
+                  </div>
+                </div>
+              </div>
+
+              <div class='column-b'>
+                <div class='card' style='background-color: #FFFAFA; width:95%; justify-content: flex-start;'>
+                  <div class='card-body' >
+                    <p class="pic-title"id="caption">Christmas Days</p>
+                    <img src="static/img/Christmas_v2.png" width='80%' height='80%' onclick="onClick(this)" alt="Active Time">
+
+                  </div>
+                </div>
+              </div>
+    
+            </div>
+    
+        </div>
+
+        <br> 
+        <!-- # Comparison -->
+        <div class='container'>
+          
+            <div class='row'>
+              
+
+              <div class='column-full'>
+                <div class='card' style='background-color: #FFFAFA; width:100%; justify-content: flex-end;'>
+                  <div class='card-body' >
+                    <p class="pic-title"id="caption">Comparison between the number of Tweets, Retweets, and Replies</p>
+                    <img src="static/img/tweetvsreplyvsretweet_v2.png" width='80%' height='80%' onclick="onClick(this)" alt="Active Time">
+                    
+                  </div>
+                </div>
+              </div>
+<!-- 
+              <div class='column-b'>
+                <div class='card' style='background-color: #FFFAFA; width:95%; justify-content: flex-start;'>
+                  <div class='card-body' >
+                    <p class="pic-title"id="caption">tweets type</p>
+                    <img src="static/img/tweets_type_v2.png" width='80%' height='80%' onclick="onClick(this)" alt="Active Time">
+
+                  </div>  
+                </div>
+              </div>
+     -->
+            </div>
+    
+        </div>
+    
+
+        <br> 
+        <!-- # worldcloud  row -->
+        <div class='container'>
+          
+            <div class='row'>
+              
+
+              <div class='column-a'>
+                <div class='card' style='background-color: #FFFAFA; width:100%; justify-content: flex-end;'>
+                  <div class='card-body' >
+                    <p class="pic-title"id="caption">Wordcload CocaCola</p>
+                    <img src="static/img/wordcloadCocaCola_2.png" width='80%' height='80%' onclick="onClick(this)" alt="Active Time">
+                    
+                  </div>
+                </div>
+              </div>
+
+              <div class='column-b'>
+                <div class='card' style='background-color: #FFFAFA; width:95%; justify-content: flex-start;'>
+                  <div class='card-body' >
+                    <p class="pic-title"id="caption">Wordcload Pepsi</p>
+                    <img src="static/img/wordcloadpepsi_2.png" width='80%' height='80%' onclick="onClick(this)" alt="Active Time">
+
+                  </div>  
+                </div>
+              </div>
+    
+            </div>
+    
+        </div>
+        <br> 
+        <!--Interactions between Two Entities-->
+        <div class='container'>
+          
+            <div class='row'>
+              
+
+              <div class='column-full'>
+                <div class='card' style='background-color: #FFFAFA; width:100%; justify-content: flex-end;'>
+                  <div class='card-body' >
+                    <p class="pic-title"id="caption">Interactions between Two Entities</p>
+                    <img src="static/img/Interactions between Two Entities_v2.png" width='80%' height='80%' onclick="onClick(this)" alt="Active Time">
+                    
+                  </div>
+                </div>
+              </div>
+
+              <!-- <div class='column-b'>
+                <div class='card' style='background-color: #FFFAFA; width:95%; justify-content: flex-start;'>
+                  <div class='card-body' >
+                    <p class="pic-title"id="caption">tweets type</p>
+                    <img src="static/img/tweets_type_v2.png" width='80%' height='80%' onclick="onClick(this)" alt="Active Time">
+
+                  </div>  
+                </div>
+              </div> -->
+    
+            </div>
+    
+        </div>
+        <br> 
+        <!--tweets_type-->
+        <div class='container'>
+          
+            <div class='row'>
+              
+
+              <div class='column-full'>
+                <div class='card' style='background-color: #FFFAFA; width:100%; justify-content: flex-end;'>
+                  <div class='card-body' >
+                    <p class="pic-title"id="caption">Tweets type</p>
+                    <img src="static/img/tweets_type_v3.png" width='80%' height='80%' onclick="onClick(this)" alt="Active Time">
+                    
+                  </div>
+                </div>
+              </div>
+
+              <!-- <div class='column-b'>
+                <div class='card' style='background-color: #FFFAFA; width:95%; justify-content: flex-start;'>
+                  <div class='card-body' >
+                    <p class="pic-title"id="caption">tweets type</p>
+                    <img src="static/img/tweets_type_v2.png" width='80%' height='80%' onclick="onClick(this)" alt="Active Time">
+
+                  </div>  
+                </div>
+              </div> -->
+    
+            </div>
+    
+        </div>
+        <br> 
+        <!-- avg fav count for diff type of tweet-->
+        <div class='container'>
+          
+            <div class='row'>
+              
+
+              <div class='column-full'>
+                <div class='card' style='background-color: #FFFAFA; width:100%; justify-content: flex-end;'>
+                  <div class='card-body' >
+                    <p class="pic-title"id="caption">Avg fav count for diff type of tweet</p>
+                    <img src="static/img/Average favorite count in different type of tweets_v2.png" width='80%' height='80%' onclick="onClick(this)" alt="Active Time">
+                    
+                  </div>
+                </div>
+              </div>
+
+              <!-- <div class='column-b'>
+                <div class='card' style='background-color: #FFFAFA; width:95%; justify-content: flex-start;'>
+                  <div class='card-body' >
+                    <p class="pic-title"id="caption">tweets type</p>
+                    <img src="static/img/tweets_type_v2.png" width='80%' height='80%' onclick="onClick(this)" alt="Active Time">
+
+                  </div>  
+                </div>
+              </div> -->
+    
+            </div>
+    
+        </div>
+        <br> 
+        <!-- tweet Length-->
+        <div class='container'>
+          
+            <div class='row'>
+              
+
+              <div class='column-full'>
+                <div class='card' style='background-color: #FFFAFA; width:100%; justify-content: flex-end;'>
+                  <div class='card-body' >
+                    <p class="pic-title"id="caption">Tweet Length</p>
+                    <img src="static/img/tweetLength_v2.png" width='80%' height='80%' onclick="onClick(this)" alt="Active Time">
+                    
+                  </div>
+                </div>
+              </div>
+
+              <!-- <div class='column-b'>
+                <div class='card' style='background-color: #FFFAFA; width:95%; justify-content: flex-start;'>
+                  <div class='card-body' >
+                    <p class="pic-title"id="caption">tweets type</p>
+                    <img src="static/img/tweets_type_v2.png" width='80%' height='80%' onclick="onClick(this)" alt="Active Time">
+
+                  </div>  
+                </div>
+              </div> -->
+    
+            </div>
+    
+        </div>
+
+        <br> 
+        <!-- seven  row -->
+        <div class='container'>
+          
+            <div class='row'>
+              
+
+              <div class='column-full'>
+                <div class='card' style='background-color: #FFFAFA; width:100%; justify-content: flex-end;'>
+                  <div class='card-body' >
+                    <p class="pic-title"id="caption">Kindness Starts With</p>
+                    <img src="static/img/KindnessStartsWith_v2.png" width='80%' height='80%' onclick="onClick(this)" alt="Active Time">
+                    
+                  </div>
+                </div>
+              </div>
+
+              <!-- <div class='column-b'>
+                <div class='card' style='background-color: #FFFAFA; width:95%; justify-content: flex-start;'>
+                  <div class='card-body' >
+                    <p class="pic-title"id="caption">tweets type</p>
+                    <img src="static/img/tweets_type_v2.png" width='80%' height='80%' onclick="onClick(this)" alt="Active Time">
+
+                  </div>  
+                </div>
+              </div>
+     -->
+            </div>
+    
+        </div>
+
+        <br> 
+        <!-- eight  row -->
+        <div class='container'>
+          
+            <div class='row'>
+              
+
+              <div class='column-full'>
+                <div class='card' style='background-color: #FFFAFA; width:100%; justify-content: flex-end;'>
+                  <div class='card-body' >
+                    <p class="pic-title"id="caption">Gift It Forward</p>
+                    <img src="static/img/GiftItForward_v2.png" width='80%' height='80%' onclick="onClick(this)" alt="Active Time">
+                    
+                  </div>
+                </div>
+              </div>
+<!-- 
+              <div class='column-b'>
+                <div class='card' style='background-color: #FFFAFA; width:95%; justify-content: flex-start;'>
+                  <div class='card-body' >
+                    <p class="pic-title"id="caption">tweets type</p>
+                    <img src="static/img/tweets_type_v2.png" width='80%' height='80%' onclick="onClick(this)" alt="Active Time">
+
+                  </div>  
+                </div>
+              </div> -->
+    
+            </div>
+    
+        </div>
+    
+        <br> 
+        <!-- end row -->
+        <!-- <div class='container'>
+  
+          <div class='row'>
+  
+            <div class='column-a'>
+              <div class='card' style='background-color: #FFFAFA; width:95%;'>
+                <div class='card-body' style='background-color: #FFFAFA; width:95%;'>
+                  <p class="pic-title"id="caption">Tweet Length</p>
+                </div>
+              </div>
+            </div>
+  
+      
+          </div>
+  
+        </div>  -->
+
+        <!-- Modal for full size images on click-->
+          <div id="modal01" class="w3-modal w3-black" style="padding-top:0  ;background-color: #ffffff;"  onclick="this.style.display='none'">
+            <span class="w3-button w3-black w3-xlarge w3-display-topright">×</span>
+            <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+              <img id="img01" class="w3-image">
+              <p id="caption"id="caption"></p>
+            </div>
+          </div>
+  
+
+        <br> <br>
+        <div id="my_dataviz" class='container'>
+  
+        
+        </div>
+      
+      </div>
+
+
+
+      
+    </div>
+    
+
+  </body>
+
+  <script>
+
+    function onClick(element) {
+      document.getElementById("img01").src = element.src;
+      document.getElementById("modal01").style.display = "block";
+      var captionText = document.getElementById("caption");
+      captionText.innerHTML = element.alt;
+    }
+    
+    </script>
+
+</html>
+
