@@ -1,0 +1,194 @@
+{
+  "graph": [],
+  "links": [
+    {"source": 0, "target": 1},
+    {"source": 0, "target": 3},
+    {"source": 0, "target": 12},
+    {"source": 0, "target": 23},
+    {"source": 0, "target": 32},
+    {"source": 0, "target": 43},
+    {"source": 0, "target": 44},
+    {"source": 0, "target": 45},
+    {"source": 0, "target": 46},
+    {"source": 0, "target": 47},
+    
+    {"source": 1, "target": 2},
+
+
+    {"source": 3, "target": 4},
+    {"source": 3, "target": 5},
+    {"source": 3, "target": 6},
+    {"source": 3, "target": 7},
+    {"source": 3, "target": 8},
+    {"source": 3, "target": 9},
+    {"source": 3, "target": 10},
+    {"source": 3, "target": 11},
+    
+
+    {"source": 12, "target": 13},
+    {"source": 12, "target": 14},
+    {"source": 12, "target": 15},
+    {"source": 12, "target": 16},
+    {"source": 12, "target": 17},
+    {"source": 12, "target": 18},
+    {"source": 12, "target": 19},
+    {"source": 12, "target": 20},
+    {"source": 12, "target": 21},
+    {"source": 12, "target": 22},
+    
+    {"source": 23, "target": 24},
+    {"source": 23, "target": 25},
+    {"source": 23, "target": 26},
+    {"source": 23, "target": 27},
+    {"source": 23, "target": 28},
+    {"source": 23, "target": 29},
+    {"source": 23, "target": 30},
+    {"source": 23, "target": 31},
+    
+    {"source": 24, "target": 32},
+    {"source": 25, "target": 3},
+    
+    {"source": 32, "target": 33},
+    {"source": 32, "target": 36},
+    {"source": 32, "target": 37},
+    {"source": 32, "target": 38},
+    {"source": 32, "target": 39},
+    {"source": 32, "target": 40},
+    {"source": 32, "target": 41},
+    {"source": 32, "target": 42},
+    
+    {"source": 33, "target": 34},
+    {"source": 33, "target": 35},
+    {"source": 33, "target": 42},
+    
+    {"source": 43, "target": 44},
+    {"source": 43, "target": 45},
+    {"source": 43, "target": 46},
+    {"source": 43, "target": 47},
+    {"source": 43, "target": 48},
+    {"source": 43, "target": 53},
+    
+    {"source": 44, "target": 47},
+    {"source": 44, "target": 48},
+    {"source": 44, "target": 49},
+    {"source": 44, "target": 53},
+    {"source": 44, "target": 55},
+    
+    {"source": 44, "target": 33},
+    {"source": 44, "target": 12},
+    {"source": 44, "target": 3},
+    {"source": 44, "target": 23},
+    
+    {"source": 45, "target": 33},
+    {"source": 45, "target": 43},
+    {"source": 45, "target": 3},
+    {"source": 45, "target": 23},
+    {"source": 45, "target": 49},
+    {"source": 45, "target": 51},
+    {"source": 45, "target": 52},
+    {"source": 45, "target": 54},
+    
+    {"source": 46, "target": 33},
+    {"source": 46, "target": 1},
+    {"source": 46, "target": 47},
+    {"source": 46, "target": 48},
+    {"source": 46, "target": 50},
+    {"source": 46, "target": 51},
+    {"source": 46, "target": 52},
+    {"source": 46, "target": 53},
+    {"source": 46, "target": 32},
+
+
+    {"source": 47, "target": 48},
+    {"source": 47, "target": 23},
+    
+    {"source": 48, "target": 23},
+
+    {"source": 50, "target": 42},
+    {"source": 51, "target": 32},
+    {"source": 52, "target": 32},
+    {"source": 53, "target": 32}
+    
+
+
+
+
+
+],
+  "nodes": [
+    {"size": 110, "score": 2     , "id": "pepsi", "type": "circle"},
+    {"size": 30, "score": 2     , "id": "Twitter", "type": "circle"},
+    {"size": 10, "score": 2     , "id": "TwitterRetweets", "type": "circle"},
+
+    {"size": 100, "score": 0     , "id": "Justinbieber", "type": "circle"},
+    {"size": 10, "score": 0     , "id": "NBA", "type": "circle"},
+    {"size": 10, "score": 0     , "id": "Chrissyteigen", "type": "circle"},
+    {"size": 10, "score": 0     , "id": "JohnCena", "type": "circle"},
+    {"size": 10, "score": 0     , "id": "NFL", "type": "circle"},
+    {"size": 10, "score": 0     , "id": "ParisHilton", "type": "circle"},
+    {"size": 10, "score": 0     , "id": "kygervais", "type": "circle"},
+    {"size": 10, "score": 0     , "id": "BTS_twt", "type": "circle"},
+    {"size": 10, "score": 0     , "id": "Vancityreynolds", "type": "circle"},
+
+
+    {"size": 140, "score": 1     , "id": "BarackObama", "type": "circle"},
+    {"size": 10, "score": 1     , "id": "FLOTUS44", "type": "circle"},
+    {"size": 10, "score": 1     , "id": "Whitehouse", "type": "circle"},
+    {"size": 10, "score": 1     , "id": "FLOTUSS", "type": "circle"},
+    {"size": 10, "score": 1     , "id": "VP", "type": "circle"},
+    {"size": 10, "score": 1     , "id": "MichelleObama", "type": "circle"},
+    {"size": 10, "score": 1     , "id": "MedvedevRussia", "type": "circle"},
+    {"size": 10, "score": 1     , "id": "SpeakerPelosi", "type": "circle"},
+    {"size": 10, "score": 1     , "id": "joeBiden", "type": "circle"},
+    {"size": 10, "score": 1     , "id": "VP44", "type": "circle"},
+    {"size": 10, "score": 1     , "id": "ObamaWhiteHouse", "type": "circle"},
+
+
+
+    {"size": 130, "score": 1.7     , "id": "ArianaGrande", "type": "circle"},
+    {"size": 20, "score":  1.7    , "id": "chrisbrown", "type": "circle"},
+    {"size": 20, "score":  1.7    , "id": "NASA", "type": "circle"},
+    {"size": 10, "score":  1.7    , "id": "voguemagazine", "type": "circle"},
+    {"size": 10, "score":  1.7    , "id": "onedirection", "type": "circle"},
+    {"size": 10, "score":  1.7    , "id": "kourtneykardash", "type": "circle"},
+    {"size": 10, "score":  1.7    , "id": "Adele", "type": "circle"},
+    {"size": 10, "score":  1.7    , "id": "camerondallas", "type": "circle"},
+    {"size": 10, "score":  1.7    , "id": "pitbull", "type": "circle"},
+
+    
+    {"size": 150, "score": 1.3     , "id": "TheEllenshow", "type": "circle"},
+    {"size": 120, "score": 1.3     , "id": "ladygaga", "type": "circle"},
+    {"size": 10, "score": 1.3     , "id": "elonmusk", "type": "circle"},
+    {"size": 10, "score": 1.3     , "id": "CNN", "type": "circle"},
+    {"size": 10, "score": 1.3     , "id": "askshaykumar", "type": "circle"},
+    {"size": 10, "score": 1.3     , "id": "NiallOfficial", "type": "circle"},
+    {"size": 10, "score": 1.3     , "id": "Harry_Styles", "type": "circle"},
+    {"size": 10, "score": 1.3     , "id": "Kingjames", "type": "circle"},
+    {"size": 10, "score": 1.3     , "id": "Louis_Tomlinson", "type": "circle"},
+    {"size": 10, "score": 1.3     , "id": "Cristiano", "type": "circle"},
+    {"size": 20, "score": 1.3     , "id": "Liampayne", "type": "circle"},
+
+    
+    {"size": 120, "score": 0.3     , "id": "Youtube", "type": "circle"},
+    {"size": 120, "score": 0.3     , "id": "jtimberlake", "type": "circle"},
+    {"size": 130, "score": 0.3     , "id": "katyperry", "type": "circle"},
+    {"size": 110, "score": 0.3     , "id": "britneyspears", "type": "circle"},
+    {"size": 60, "score": 0.3    , "id": "selenagomes", "type": "circle"},
+    {"size": 50, "score": 0.3    , "id": "rihana", "type": "circle"},
+    {"size": 50, "score": 0.3    , "id": "taylorswift13", "type": "circle"},
+    {"size": 10, "score": 0.3     , "id": "jLo", "type": "circle"},
+    {"size": 30, "score": 0.3     , "id": "Mars", "type": "circle"},
+    {"size": 30, "score": 0.3     , "id": "MileyCyrus", "type": "circle"},
+    {"size": 30, "score": 0.3     , "id": "Kimkardash", "type": "circle"},
+    {"size": 10, "score": 0.3     , "id": "Drake", "type": "circle"},
+    {"size": 10, "score": 0.3     , "id": "jimmyfallon", "type": "circle"}
+
+    
+
+    
+
+    
+    ],
+  "directed": false,
+  "multigraph": false
+}
