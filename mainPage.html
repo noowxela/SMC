@@ -1400,7 +1400,6 @@
                                 pepsi_resize();
                                 })
                                 .on("keydown", function(){
-                                console.log("cccckeydown");
                                 cola_keydown();
                                 pepsi_keydown();
                                 });
@@ -1646,7 +1645,6 @@
                                 pepsi_resize();
                             })
                             .on("keydown", function(){
-                                console.log("keydown");
                                 cola_keydown();
                                 pepsi_keydown();
                             });
@@ -1682,7 +1680,6 @@
 
         function pepsi_keydown() {
 
-        //   console.log("pepsi");
 
         if (d3.event.keyCode==32) {  pepsi_force.stop();}
         else if (d3.event.keyCode>=48 && d3.event.keyCode<=90 && !d3.event.ctrlKey && !d3.event.altKey && !d3.event.metaKey)
@@ -1690,7 +1687,7 @@
             switch (String.fromCharCode(d3.event.keyCode)) {
 
 
-            case "Z": keyz = !keyz; console.log("case Z");break;
+            case "Z": keyz = !keyz; ;break;
             case "B": keyb = !keyb; break;
             case "C": keyc = !keyc; break;
             case "V": keyv = !keyv; break;
@@ -1699,12 +1696,12 @@
             case "E": keye = !keye; break;
             case "R": keyr = !keyr; break;
 
-            case "A": keya = !keya; console.log("pppppcase A");break;
-            case "S": keys = !keys; console.log("pppppcase S");break;
-            case "D": keyd = !keyd; console.log("pppppcase D");break;
-            case "F": keyf = !keyf; console.log("pppppcase F");break;
-            case "G": keyg = !keyg; console.log("pppppcase G");break;
-            case "H": keyh = !keyh; console.log("pppppcase H");break;
+            case "A": keya = !keya; ;break;
+            case "S": keys = !keys; ;break;
+            case "D": keyd = !keyd; ;break;
+            case "F": keyf = !keyf; ;break;
+            case "G": keyg = !keyg; ;break;
+            case "H": keyh = !keyh; ;break;
 
             
             case "1": key1 = !key1; break;
@@ -1764,7 +1761,6 @@
         
         function cola_keydown() {
 
-        console.log("cola");
 
 
         if (d3.event.keyCode==32) {  cola_force.stop();}
@@ -1772,7 +1768,7 @@
         {
             switch (String.fromCharCode(d3.event.keyCode)) {
 
-                case "Z": keyz = !keyz; console.log("case Z");break;
+                case "Z": keyz = !keyz; break;
                 case "S": keyb = !keyb; break;
                 case "C": keyc = !keyc; break;
                 case "R": keyv = !keyv; break;
@@ -1780,12 +1776,12 @@
                 case "D": keyq = !keyq; break;
 
 
-                case "A": keya = !keya; console.log("case A");break;
-                case "S": keys = !keys; console.log("case S");break;
-                case "D": keyd = !keyd; console.log("case D");break;
-                case "F": keyf = !keyf; console.log("case F");break;
-                case "G": keyg = !keyg; console.log("case G");break;
-                case "H": keyh = !keyh; console.log("case H");break;
+                case "A": keya = !keya; break;
+                case "S": keys = !keys; break;
+                case "D": keyd = !keyd; break;
+                case "F": keyf = !keyf; break;
+                case "G": keyg = !keyg; break;
+                case "H": keyh = !keyh; break;
 
                 case "1": key1 = !key1; break;
                 case "2": key2 = !key2; break;
