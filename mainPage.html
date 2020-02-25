@@ -1,1693 +1,2569 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
+    <head>
+        <meta charset="utf-8">
 
-    <style>
-        @import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
-        
-        @import url(https://fonts.googleapis.com/css?family=Titillium+Web:300);
-        .fa-2x {
-        font-size: 2em;
-        }
-        .fa {
-        position: relative;
-        display: table-cell;
-        width: 30px;
-        height: 36px;
-        text-align: center;
-        vertical-align: middle;
-        font-size:20px;
-        }
-
-
-        .main-menu:hover,nav.main-menu.expanded {
-        width:250px;
-        overflow:visible;
-        }
-
-        .main-menu {
-        background:#212121;
-        /* border-right:1px solid #e5e5e5; */
-        border:0;
-        position:absolute;
-        top:0;
-        bottom:0;
-        height:100%;
-        left:0;
-        width:30px;
-        overflow:hidden;
-        -webkit-transition:width .05s linear;
-        transition:width .05s linear;
-        /* -webkit-transform:translateZ(0) scale(1,1); */
-        z-index:1000;
-        }
-
-        .main-menu>ul {
-        margin:7px 0;
-        }
-
-        .main-menu li {
-        position:relative;
-        display:block;
-        width:250px;
-        }
-
-        .main-menu li>a {
-        position:relative;
-        display:table;
-        border-collapse:collapse;
-        border-spacing:0;
-        color:#999;
-        font-family: arial;
-        font-size: 14px;
-        text-decoration:none;
-        /* -webkit-transform:translateZ(0) scale(1,1); */
-        -webkit-transition:all .1s linear;
-        transition:all .1s linear;
-          
-        }
-
-        .main-menu .nav-icon {
-        position:relative;
-        display:table-cell;
-        width:60px;
-        height:36px;
-        text-align:center;
-        vertical-align:middle;
-        font-size:18px;
-        }
-
-        .main-menu .nav-text {
-        position:relative;
-        display:table-cell;
-        vertical-align:middle;
-        width:190px;
-          font-family: 'Titillium Web', sans-serif;
-        }
-
-        .main-menu>ul.logout {
-        position:absolute;
-        left:0;
-        bottom:0;
-        }
-
-        .no-touch .scrollable.hover {
-        overflow-y:hidden;
-        }
-
-        .no-touch .scrollable.hover:hover {
-        overflow-y:auto;
-        overflow:visible;
-        }
-
-        a:hover,a:focus {
-        text-decoration:none;
-        }
-
-        nav {
-        -webkit-user-select:none;
-        -moz-user-select:none;
-        -ms-user-select:none;
-        -o-user-select:none;
-        user-select:none;
-        }
-
-        nav ul,nav li {
-        outline:0;
-        margin:0;
-        padding:0;
-        }
-        .main-menu li:hover>a,nav.main-menu li.active>a,.dropdown-menu>li>a:hover,.dropdown-menu>li>a:focus,.dropdown-menu>.active>a,.dropdown-menu>.active>a:hover,.dropdown-menu>.active>a:focus,.no-touch .dashboard-page nav.dashboard-menu ul li:hover a,.dashboard-page nav.dashboard-menu ul li.active a {
-        color:#fff;
-        background-color:#5fa2db;
-        }
-        #area {
-        float: left;
-        background: #e2e2e2;
-        background-color: rgb(0, 0, 0);
-        width: 95%;
-        height: 100%;
-        margin-left:30px;
-        }
-        @font-face {
-          font-family: 'Titillium Web';
-          font-style: normal;
-          font-weight: 300;
-          src: local('Titillium WebLight'), local('TitilliumWeb-Light'), url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff) format('woff');
-        }
+        <style>
+            @import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
+            
+            @import url(https://fonts.googleapis.com/css?family=Titillium+Web:300);
+            .fa-2x {
+            font-size: 2em;
+            }
+            .fa {
+            position: relative;
+            display: table-cell;
+            width: 30px;
+            height: 36px;
+            text-align: center;
+            vertical-align: middle;
+            font-size:20px;
+            }
 
 
-        body, html{
-            margin: 0;
-            /* padding: 5px 5 0 5; */
-            /* font-family: "Trajan Pro Bold"; */
-            font-size: 100%;
+            .main-menu:hover,nav.main-menu.expanded {
+            width:250px;
+            overflow:visible;
+            }
+
+            .main-menu {
+            background:#212121;
+            /* border-right:1px solid #e5e5e5; */
+            border:0;
+            position:absolute;
+            top:0;
+            bottom:0;
+            height:100%;
+            left:0;
+            width:30px;
+            overflow:hidden;
+            -webkit-transition:width .05s linear;
+            transition:width .05s linear;
+            /* -webkit-transform:translateZ(0) scale(1,1); */
+            z-index:1000;
+            }
+
+            .main-menu>ul {
+            margin:7px 0;
+            }
+
+            .main-menu li {
+            position:relative;
+            display:block;
+            width:250px;
+            }
+
+            .main-menu li>a {
+            position:relative;
+            display:table;
+            border-collapse:collapse;
+            border-spacing:0;
+            color:#999;
+            font-family: arial;
+            font-size: 14px;
+            text-decoration:none;
+            /* -webkit-transform:translateZ(0) scale(1,1); */
+            -webkit-transition:all .1s linear;
+            transition:all .1s linear;
+            
+            }
+
+            .main-menu .nav-icon {
+            position:relative;
+            display:table-cell;
+            width:60px;
+            height:36px;
+            text-align:center;
+            vertical-align:middle;
+            font-size:18px;
+            }
+
+            .main-menu .nav-text {
+            position:relative;
+            display:table-cell;
+            vertical-align:middle;
+            width:190px;
+            font-family: 'Titillium Web', sans-serif;
+            }
+
+            .main-menu>ul.logout {
+            position:absolute;
+            left:0;
+            bottom:0;
+            }
+
+            .no-touch .scrollable.hover {
+            overflow-y:hidden;
+            }
+
+            .no-touch .scrollable.hover:hover {
+            overflow-y:auto;
+            overflow:visible;
+            }
+
+            a:hover,a:focus {
+            text-decoration:none;
+            }
+
+            nav {
+            -webkit-user-select:none;
+            -moz-user-select:none;
+            -ms-user-select:none;
+            -o-user-select:none;
+            user-select:none;
+            }
+
+            nav ul,nav li {
+            outline:0;
+            margin:0;
+            padding:0;
+            }
+            .main-menu li:hover>a,nav.main-menu li.active>a,.dropdown-menu>li>a:hover,.dropdown-menu>li>a:focus,.dropdown-menu>.active>a,.dropdown-menu>.active>a:hover,.dropdown-menu>.active>a:focus,.no-touch .dashboard-page nav.dashboard-menu ul li:hover a,.dashboard-page nav.dashboard-menu ul li.active a {
+            color:#fff;
+            background-color:#5fa2db;
+            }
+            #area {
+            float: left;
+            background: #e2e2e2;
             background-color: rgb(0, 0, 0);
             width: 95%;
-            height: 100%;  /* initially in vh */
-        }       
-        .card-title{
-            background-color: rgb(68, 198, 250);
-            /* font-size: 1.18em; */
-            font-size:3vw;
-            color:rgb(0, 0, 0);
-            text-align: center;
-        }
-        .pic-title{
-          background-color: #FFFAFA;
-          text-decoration: underline;
-          font-weight: bold;
-        }  
-        
-        .card-body{
-          background-color: #FFFAFA;
-          text-align: center;
-        }
-        
-        .main-content {
-            position: relative;
-            display: block;
             height: 100%;
-            width: 100%;
-            background-color: rgb(0, 0, 0);
-            padding: 28px;
-        }
-
-        .container{
-            display: flex;
-            /* padding: 5px 5 0 5; */
-            min-width: 100%;
-            flex-direction: row;
-            justify-content: space-between;
-            text-align: left;
-            background-color: rgb(0, 0, 0);
-        }
-
-        .row {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-content: space-between;
-            flex-wrap: nowrap;
-            /* border: 1px solid white; */
-            width: 100%;
-            /* flex:1;    */
-            /* padding: 10px 10px 10px 40px; */
-        }
-
-        .column-a{
-            display: flex;
-            /* border: 1px solid black; */
-            width: 50%;
-            justify-content: flex-start;
-        }
-
-        .column-b{
-            display: flex;
-            /* border: 1px solid black; */
-            width: 50%;
-            justify-content: flex-end;
-        }
-        .column-c{
-            display: flex;
-            /* border: 1px solid black; */
-            width: 33%;
-            justify-content: flex-end;
-        }
-        .column-d{
-            display: flex;
-            /* border: 1px solid black; */
-            width: 33%;
-            justify-content: flex-end;
-        }
-        .column-e{
-            display: flex;
-            /* border: 1px solid black; */
-            width: 33%;
-            justify-content: flex-end;
-        }
-        .column-full{
-            display: flex;
-            width: 100%;
-            justify-content: center;
-        }
-
-        table, th, td {
-          border: 1px solid black;
-          border-collapse: collapse;
-        }
-        th, td {
-          padding: 5px;
-          text-align: center;    
-        }
+            margin-left:30px;
+            }
+            @font-face {
+            font-family: 'Titillium Web';
+            font-style: normal;
+            font-weight: 300;
+            src: local('Titillium WebLight'), local('TitilliumWeb-Light'), url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff) format('woff');
+            }
 
 
+            body, html{
+                margin: 0;
+                /* padding: 5px 5 0 5; */
+                /* font-family: "Trajan Pro Bold"; */
+                font-size: 100%;
+                background-color: rgb(0, 0, 0);
+                width: 95%;
+                height: 100%;  /* initially in vh */
+            }       
+            .card-title{
+                background-color: rgb(68, 198, 250);
+                /* font-size: 1.18em; */
+                font-size:3vw;
+                color:rgb(0, 0, 0);
+                text-align: center;
+            }
+            .pic-title{
+            background-color: #FFFAFA;
+            text-decoration: underline;
+            font-weight: bold;
+            }  
+            
+            .card-body{
+            background-color: #FFFAFA;
+            text-align: center;
+            }
+            
+            .main-content {
+                position: relative;
+                display: block;
+                height: 100%;
+                width: 100%;
+                background-color: rgb(0, 0, 0);
+                padding: 28px;
+            }
+
+            .container{
+                display: flex;
+                /* padding: 5px 5 0 5; */
+                min-width: 100%;
+                flex-direction: row;
+                justify-content: space-between;
+                text-align: left;
+                background-color: rgb(0, 0, 0);
+            }
+
+            .row {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-content: space-between;
+                flex-wrap: nowrap;
+                /* border: 1px solid white; */
+                width: 100%;
+                /* flex:1;    */
+                /* padding: 10px 10px 10px 40px; */
+            }
+
+            .column-a{
+                display: flex;
+                /* border: 1px solid black; */
+                width: 50%;
+                justify-content: flex-start;
+            }
+
+            .column-b{
+                display: flex;
+                /* border: 1px solid black; */
+                width: 50%;
+                justify-content: flex-end;
+            }
+            .column-c{
+                display: flex;
+                /* border: 1px solid black; */
+                width: 33%;
+                justify-content: flex-end;
+            }
+            .column-d{
+                display: flex;
+                /* border: 1px solid black; */
+                width: 33%;
+                justify-content: flex-end;
+            }
+            .column-e{
+                display: flex;
+                /* border: 1px solid black; */
+                width: 33%;
+                justify-content: flex-end;
+            }
+            .column-full{
+                display: flex;
+                width: 100%;
+                justify-content: center;
+            }
+
+            table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            }
+            th, td {
+            padding: 5px;
+            text-align: center;    
+            }
 
 
 
 
 
-        /* .links line {
-          stroke: #999;
-          stroke-opacity: 0.6;
-        }
-
-        .nodes circle {
-          stroke: #fff;
-          stroke-width: 1.5px;
-        }
-
-        text {
-          font-family: sans-serif;
-          font-size: 10px;
-        } */
 
 
-        /* body {
-          overflow:hidden;
-          margin:0;
-        } */
 
-        text {
-          font-family: sans-serif;
-          pointer-events: none;
-        }
+            text {
+            font-family: sans-serif;
+            pointer-events: none;
+            }
 
-    </style>
-  </head>
+	/* ------- PIE style -------*/
 
-  <body>
-    <div class="w3-main w3-content" id="area">
+            svg.cola_cinamon{
+                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                position: relative;
 
-        <div class='main-content'>
-                
-                    <!-- big title -->
-                    <div class= "card-title" style="text-align: center;">
+            }
 
-                        <h1 class= "card-title"style="background-image: linear-gradient(to left, rgba(255,0,0,0), rgba(255,0,0,1))">CocaCola vs Pepsi </h1>
+            path.slice{
+                stroke-width:2px;
+            }
+
+            polyline{
+                opacity: .3;
+                stroke: black;
+                stroke-width: 2px;
+                fill: none;
+            }
+
+	/* ------- PIE style -------*/
+
+        </style>
+    </head>
+
+    <body>
+        <div class="w3-main w3-content" id="area">
+
+            <div class='main-content'>
                     
-                    </div>
-            
-                    <br>
-            
-                    <br> 
-                    <!-- # number of followers and friends row -->
-                    <div class='container'>
+                        <!-- big title -->
+                        <div class= "card-title" style="text-align: center;">
+
+                            <h1 class= "card-title"style="background-image: linear-gradient(to left, rgba(255,0,0,0), rgba(255,0,0,1))">CocaCola vs Pepsi </h1>
                         
-                        <div class='row'>
+                        </div>
+                
+                        <br>
+                
+                        <br> 
+                        <!-- # number of followers and friends row -->
+                        <div class='container'>
                             
+                            <div class='row'>
+                                
 
-                            <div class='column-full'>
+                                <div class='column-full'>
 
-                                <div class='card' style='background-color: #FFFAFA; width:100%; justify-content: flex-start;'>
+                                    <div class='card' style='background-color: #FFFAFA; width:100%; justify-content: flex-start;'>
 
-                                    <table style="width:100%">
-                                        <tr>
-                                            <th colspan="3">By 4/1/2020</th>
-                                        </tr>
-                                        <tr>
-                                            <th></th>
-                                            <th style="background-color: rgba(255, 0, 0, 0.842)">CocaCola</th>
-                                            <th style="background-color: rgb(37, 37, 187); color: white;">Pepsi</th>
+                                        <table style="width:100%">
+                                            <tr>
+                                                <th colspan="3">By 4/1/2020</th>
+                                            </tr>
+                                            <tr>
+                                                <th></th>
+                                                <th style="background-color: rgba(255, 0, 0, 0.842)">CocaCola</th>
+                                                <th style="background-color: rgb(37, 37, 187); color: white;">Pepsi</th>
 
-                                            <!-- <th></th> -->
+                                                <!-- <th></th> -->
+                                                
+                                            </tr>
+                                            <tr>
+                                                <td>No. of Followers:</td>
+                                                <td>3341575</td>
+                                                <td>3015813</td>
+                                            </tr>
+                                            <tr>
+                                                <td>No. of Friends:</td>
+                                                <td>61493</td>
+                                                <td>39874</td>
+                                            </tr>
+                                        </table>
+
+                                    </div>
+
+
+                                </div>
+
+                    
+                            </div>
+                        
+                        </div>
+                
+                        <br> 
+                        <!-- # Deg of centrality row -->
+                        <div class='container'>
+                        
+                            <div class='row'>
+                                
+
+                                <div class='column-a'>
+                                    <div class='card' style='background-color: #FFFAFA; width:100%; justify-content: flex-start;'>
+                                        <div class='card-body' >
+                                            <p class="pic-title"id="caption">Deg of centrality of follower</p>
+                                            <img src="static/img/Degree of Centrality of Followers_v2.png" width='80%' height='80%' " alt="Active Time">
                                             
-                                        </tr>
-                                        <tr>
-                                            <td>No. of Followers:</td>
-                                            <td>3341575</td>
-                                            <td>3015813</td>
-                                        </tr>
-                                        <tr>
-                                            <td>No. of Friends:</td>
-                                            <td>61493</td>
-                                            <td>39874</td>
-                                        </tr>
-                                    </table>
-
+                                        </div>
+                                    </div>
                                 </div>
 
+                                <div class='column-b'>
+                                    <div class='card' style='background-color: #FFFAFA; width:95%; justify-content: flex-end;'>
+                                        <div class='card-body' >
+                                        <p class="pic-title"id="caption">Deg of centrality of friend </p>
+                                        <img src="static/img/Degree of Centrality of Friends_v2.png" width='80%' height='80%' " alt="Active Time">
 
+                                        </div>
+                                    </div>
+                                </div>
+                    
                             </div>
-
-                
+                    
                         </div>
-                    
-                    </div>
-            
-                    <br> 
-                    <!-- # Deg of centrality row -->
-                    <div class='container'>
-                    
-                        <div class='row'>
+
+                        <br> 
+                        <!-- # top 5 friend  row -->
+                        <div class='container'>
+                        
+                            <div class='row'>
                             
 
-                            <div class='column-a'>
-                                <div class='card' style='background-color: #FFFAFA; width:100%; justify-content: flex-start;'>
-                                    <div class='card-body' >
-                                        <p class="pic-title"id="caption">Deg of centrality of follower</p>
-                                        <img src="static/img/Degree of Centrality of Followers_v2.png" width='80%' height='80%' " alt="Active Time">
-                                        
+                                <div class='column-full'>
+                                    <div class='card' style='background-color: #FFFAFA; width:100%; justify-content: flex-start;'>
+                                        <div class='card-body' >
+                                            <p class="pic-title"id="caption">Top 5 friend</p>
+                                            <img src="static/img/Top 5 Friend _v2.png" width='80%' height='80%' " alt="Active Time">
+                                            
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <div class='column-b'>
-                                <div class='card' style='background-color: #FFFAFA; width:95%; justify-content: flex-end;'>
+                                <!-- <div class='column-b'>
+                                    <div class='card' style='background-color: #FFFAFA; width:95%; justify-content: flex-start;'>
                                     <div class='card-body' >
-                                    <p class="pic-title"id="caption">Deg of centrality of friend </p>
-                                    <img src="static/img/Degree of Centrality of Friends_v2.png" width='80%' height='80%' " alt="Active Time">
+                                        <p class="pic-title"id="caption">Deg of centrality of friend </p>
+                                        <img src="static/img/Degree of Centrality of Friends_v2.png" width='80%' height='80%' " alt="Active Time">
 
                                     </div>
-                                </div>
-                            </div>
-                
-                        </div>
-                
-                    </div>
-
-                    <br> 
-                    <!-- # top 5 friend  row -->
-                    <div class='container'>
+                                    </div>
+                                </div> -->
                     
-                        <div class='row'>
+                            </div>
+                    
+                        </div>
+                    
+
+                        <br> 
+                        <!-- # activetime  row -->
+                        <div class='container'>
                         
-
-                            <div class='column-full'>
-                                <div class='card' style='background-color: #FFFAFA; width:100%; justify-content: flex-start;'>
-                                    <div class='card-body' >
-                                        <p class="pic-title"id="caption">Top 5 friend</p>
-                                        <img src="static/img/Top 5 Friend _v2.png" width='80%' height='80%' " alt="Active Time">
-                                        
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- <div class='column-b'>
-                                <div class='card' style='background-color: #FFFAFA; width:95%; justify-content: flex-start;'>
-                                <div class='card-body' >
-                                    <p class="pic-title"id="caption">Deg of centrality of friend </p>
-                                    <img src="static/img/Degree of Centrality of Friends_v2.png" width='80%' height='80%' " alt="Active Time">
-
-                                </div>
-                                </div>
-                            </div> -->
-                
-                        </div>
-                
-                    </div>
-                
-
-                    <br> 
-                    <!-- # activetime  row -->
-                    <div class='container'>
-                    
-                        <div class='row'>
-                        
-
-                            <div class='column-full'>
-                                <div class='card' style='background-color: #FFFAFA; width:100%; justify-content: flex-start;'>
-                                    <div class='card-body' >
-                                        <p class="pic-title"id="caption">Active time</p>
-                                        <img src="static/img/activetime_v2.png" width='80%' height='80%' " alt="Active Time">
-                                        
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- <div class='column-b'>
-                                <div class='card' style='background-color: #FFFAFA; width:95%; justify-content: flex-start;'>
-                                <div class='card-body' >
-                                    <p class="pic-title"id="caption">Deg of centrality of friend </p>
-                                    <img src="static/img/Degree of Centrality of Friends_v2.png" width='80%' height='80%' " alt="Active Time">
-
-                                </div>
-                                </div>
-                            </div> -->
-                
-                        </div>
-                
-                    </div>
-                
-                    <br> 
-                    <!-- #  Festive tweets-->
-                    <div class='container'>
-                    
-                        <div class='row'>
-                        
-
-                            <div class='column-a'>
-                                <div class='card' style='background-color: #FFFAFA; width:100%; justify-content: flex-end;'>
-                                    <div class='card-body' >
-                                        <p class="pic-title"id="caption">Thanksgiving Day</p>
-                                        <img src="static/img/Thanksgiving Day_v2.png" width='80%' height='80%' " alt="Active Time">
-                                        
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class='column-b'>
-                                <div class='card' style='background-color: #FFFAFA; width:95%; justify-content: flex-start;'>
-                                <div class='card-body' >
-                                    <p class="pic-title"id="caption">Christmas Days</p>
-                                    <img src="static/img/Christmas_v2.png" width='80%' height='80%' " alt="Active Time">
-
-                                </div>
-                                </div>
-                            </div>
-                
-                        </div>
-                
-                    </div>
-
-                    <br> 
-                    <!-- # Comparison -->
-                    <div class='container'>
-                    
-                        <div class='row'>
-                        
-
-                            <div class='column-full'>
-                                <div class='card' style='background-color: #FFFAFA; width:100%; justify-content: flex-end;'>
-                                    <div class='card-body' >
-                                        <p class="pic-title"id="caption">Comparison between the number of Tweets, Retweets, and Replies</p>
-                                        <img src="static/img/tweetvsreplyvsretweet_v2.png" width='80%' height='80%' " alt="Active Time">
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                <!-- 
-                            <div class='column-b'>
-                                <div class='card' style='background-color: #FFFAFA; width:95%; justify-content: flex-start;'>
-                                <div class='card-body' >
-                                    <p class="pic-title"id="caption">tweets type</p>
-                                    <img src="static/img/tweets_type_v2.png" width='80%' height='80%' " alt="Active Time">
-
-                                </div>  
-                                </div>
-                            </div>
-                    -->
-                        </div>
-                
-                    </div>
-                
-
-                    <br> 
-                    <!-- # worldcloud  row -->
-                    <div class='container'>
-                    
-                        <div class='row'>
+                            <div class='row'>
                             
 
-                            <div class='column-a'>
-                                <div class='card' style='background-color: #FFFAFA; width:100%; justify-content: flex-end;'>
-                                    <div class='card-body' >
-                                        <p class="pic-title"id="caption">Wordcload CocaCola</p>
-                                        <img src="static/img/wordcloadCocaCola_2.png" width='80%' height='80%' " alt="Active Time">
-                                        
+                                <div class='column-full'>
+                                    <div class='card' style='background-color: #FFFAFA; width:100%; justify-content: flex-start;'>
+                                        <div class='card-body' >
+                                            <p class="pic-title"id="caption">Active time</p>
+                                            <img src="static/img/activetime_v2.png" width='80%' height='80%' " alt="Active Time">
+                                            
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <div class='column-b'>
-                                <div class='card' style='background-color: #FFFAFA; width:95%; justify-content: flex-start;'>
+                                <!-- <div class='column-b'>
+                                    <div class='card' style='background-color: #FFFAFA; width:95%; justify-content: flex-start;'>
                                     <div class='card-body' >
-                                        <p class="pic-title"id="caption">Wordcload Pepsi</p>
-                                        <img src="static/img/wordcloadpepsi_2.png" width='80%' height='80%' " alt="Active Time">
+                                        <p class="pic-title"id="caption">Deg of centrality of friend </p>
+                                        <img src="static/img/Degree of Centrality of Friends_v2.png" width='80%' height='80%' " alt="Active Time">
 
-                                    </div>  
-                                </div>
-                            </div>
-                
-                        </div>
-                
-                    </div>
-
-                    <br> 
-                    <!--Interactions between Two Entities-->
-                    <div class='container'>
+                                    </div>
+                                    </div>
+                                </div> -->
                     
-                        <div class='row'>
+                            </div>
+                    
+                        </div>
+                    
+                        <br> 
+                        <!-- #  Festive tweets-->
+                        <div class='container'>
                         
-
-                            <div class='column-full'>
-                                <div class='card' style='background-color: #FFFAFA; width:100%; justify-content: flex-end;'>
-                                    <div class='card-body' >
-                                        <p class="pic-title"id="caption">Interactions between Two Entities</p>
-                                        <img src="static/img/Interactions between Two Entities_v2.png" width='80%' height='80%' " alt="Active Time">
-                                        
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- <div class='column-b'>
-                                <div class='card' style='background-color: #FFFAFA; width:95%; justify-content: flex-start;'>
-                                <div class='card-body' >
-                                    <p class="pic-title"id="caption">tweets type</p>
-                                    <img src="static/img/tweets_type_v2.png" width='80%' height='80%' " alt="Active Time">
-
-                                </div>  
-                                </div>
-                            </div> -->
-                
-                        </div>
-                
-                    </div>
-
-                    <br> 
-                    <!--tweets_type-->
-                    <div class='container'>
-                    
-                        <div class='row'>
-                        
-
-                            <div class='column-full'>
-                                <div class='card' style='background-color: #FFFAFA; width:100%; justify-content: flex-end;'>
-                                    <div class='card-body' >
-                                        <p class="pic-title"id="caption">Tweets type</p>
-                                        <img src="static/img/tweets_type_v3.png" width='80%' height='80%' " alt="Active Time">
-                                        
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- <div class='column-b'>
-                                <div class='card' style='background-color: #FFFAFA; width:95%; justify-content: flex-start;'>
-                                <div class='card-body' >
-                                    <p class="pic-title"id="caption">tweets type</p>
-                                    <img src="static/img/tweets_type_v2.png" width='80%' height='80%' " alt="Active Time">
-
-                                </div>  
-                                </div>
-                            </div> -->
-                
-                        </div>
-                
-                    </div>
-
-                    <br> 
-                    <!-- avg fav count for diff type of tweet-->
-                    <div class='container'>
-                    
-                        <div class='row'>
-                        
-
-                            <div class='column-full'>
-                                <div class='card' style='background-color: #FFFAFA; width:100%; justify-content: flex-end;'>
-                                    <div class='card-body' >
-                                        <p class="pic-title"id="caption">Avg fav count for diff type of tweet</p>
-                                        <img src="static/img/Average favorite count in different type of tweets_v2.png" width='80%' height='80%' " alt="Active Time">
-                                        
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- <div class='column-b'>
-                                <div class='card' style='background-color: #FFFAFA; width:95%; justify-content: flex-start;'>
-                                <div class='card-body' >
-                                    <p class="pic-title"id="caption">tweets type</p>
-                                    <img src="static/img/tweets_type_v2.png" width='80%' height='80%' " alt="Active Time">
-
-                                </div>  
-                                </div>
-                            </div> -->
-                
-                        </div>
-                
-                    </div>
-                    <br> 
-                    <!-- tweet Length-->
-                    <div class='container'>
-                    
-                        <div class='row'>
-                        
-
-                            <div class='column-full'>
-                                <div class='card' style='background-color: #FFFAFA; width:100%; justify-content: flex-end;'>
-                                    <div class='card-body' >
-                                        <p class="pic-title"id="caption">Tweet Length</p>
-                                        <img src="static/img/tweetLength_v2.png" width='80%' height='80%' " alt="Active Time">
-                                        
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- <div class='column-b'>
-                                <div class='card' style='background-color: #FFFAFA; width:95%; justify-content: flex-start;'>
-                                <div class='card-body' >
-                                    <p class="pic-title"id="caption">tweets type</p>
-                                    <img src="static/img/tweets_type_v2.png" width='80%' height='80%' " alt="Active Time">
-
-                                </div>  
-                                </div>
-                            </div> -->
-                
-                        </div>
-                
-                    </div>
-
-                    <br> 
-                    <!-- seven  row -->
-                    <div class='container'>
-                    
-                        <div class='row'>
-                        
-
-                            <div class='column-full'>
-                                <div class='card' style='background-color: #FFFAFA; width:100%; justify-content: flex-end;'>
-                                    <div class='card-body' >
-                                        <p class="pic-title"id="caption">Kindness Starts With</p>
-                                        <img src="static/img/KindnessStartsWith_v2.png" width='80%' height='80%' " alt="Active Time">
-                                        
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- <div class='column-b'>
-                                <div class='card' style='background-color: #FFFAFA; width:95%; justify-content: flex-start;'>
-                                <div class='card-body' >
-                                    <p class="pic-title"id="caption">tweets type</p>
-                                    <img src="static/img/tweets_type_v2.png" width='80%' height='80%' " alt="Active Time">
-
-                                </div>  
-                                </div>
-                            </div>
-                -->
-                        </div>
-                
-                    </div>
-
-                    <br> 
-                    <!-- eight  row -->
-                    <div class='container'>
-                    
-                        <div class='row'>
+                            <div class='row'>
                             
 
-                            <div class='column-full'>
-                                <div class='card' style='background-color: #FFFAFA; width:100%; justify-content: flex-end;'>
-                                    <div class='card-body' >
-                                        <p class="pic-title"id="caption">Gift It Forward</p>
-                                        <img src="static/img/GiftItForward_v2.png" width='80%' height='80%' " alt="Active Time">
-                                        
+                                <div class='column-a'>
+                                    <div class='card' style='background-color: #FFFAFA; width:100%; justify-content: flex-end;'>
+                                        <div class='card-body' >
+                                            <p class="pic-title"id="caption">Thanksgiving Day</p>
+                                            <img src="static/img/Thanksgiving Day_v2.png" width='80%' height='80%' " alt="Active Time">
+                                            
+                                        </div>
                                     </div>
                                 </div>
+
+                                <div class='column-b'>
+                                    <div class='card' style='background-color: #FFFAFA; width:95%; justify-content: flex-start;'>
+                                    <div class='card-body' >
+                                        <p class="pic-title"id="caption">Christmas Days</p>
+                                        <img src="static/img/Christmas_v2.png" width='80%' height='80%' " alt="Active Time">
+
+                                    </div>
+                                    </div>
+                                </div>
+                    
                             </div>
-                
-                            <!-- <div class='column-b'>
-                                <div class='card' style='background-color: #FFFAFA; width:95%; justify-content: flex-start;'>
+                    
+                        </div>
+
+                        <br> 
+                        <!-- # Comparison between the number of Tweets, Retweets, and Replies -->
+                        <div class='container'>
+                        
+                            <div class='row'>
+                            
+
+                                <div class='column-full'>
+                                    <div class='card' style='background-color: #FFFAFA; width:100%; justify-content: flex-end;'>
+                                        <div class='card-body' >
+                                            <p class="pic-title"id="caption">Comparison between the number of Tweets, Retweets, and Replies</p>
+                                            <img src="static/img/tweetvsreplyvsretweet_v2.png" width='80%' height='80%' " alt="Active Time">
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                    <!-- 
+                                <div class='column-b'>
+                                    <div class='card' style='background-color: #FFFAFA; width:95%; justify-content: flex-start;'>
                                     <div class='card-body' >
                                         <p class="pic-title"id="caption">tweets type</p>
                                         <img src="static/img/tweets_type_v2.png" width='80%' height='80%' " alt="Active Time">
 
                                     </div>  
+                                    </div>
                                 </div>
-                            </div> -->
+                        -->
+                            </div>
                     
                         </div>
-                
-                    </div>
-                
-                    <br> 
+                    
 
-                    <div class= "card-title" style="text-align: center;">
+                        <br> 
+                        <!-- # worldcloud  row -->
+                        <div class='container'>
+                        
+                            <div class='row'>
+                                
+
+                                <div class='column-a'>
+                                    <div class='card' style='background-color: #FFFAFA; width:100%; justify-content: flex-end;'>
+                                        <div class='card-body' >
+                                            <p class="pic-title"id="caption">Wordcload CocaCola</p>
+                                            <img src="static/img/wordcloadCocaCola_2.png" width='80%' height='80%'  alt="Active Time">
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class='column-b'>
+                                    <div class='card' style='background-color: #FFFAFA; width:95%; justify-content: flex-start;'>
+                                        <div class='card-body' >
+                                            <p class="pic-title"id="caption">Wordcload Pepsi</p>
+                                            <img src="static/img/wordcloadpepsi_2.png" width='80%' height='80%'  alt="Active Time">
+
+                                        </div>  
+                                    </div>
+                                </div>
+                    
+                            </div>
+                    
+                        </div>
+
+                        <br> 
+                        <!--Interactions between Two Entities-->
+                        <div class='container'>
+                        
+                            <div class='row'>
+                            
+
+                                <div class='column-full'>
+                                    <div class='card' style='background-color: #FFFAFA; width:100%; justify-content: flex-end;'>
+                                        <div class='card-body' >
+                                            <p class="pic-title"id="caption">Interactions between Two Entities</p>
+                                            <img src="static/img/Interactions between Two Entities_v2.png" width='80%' height='80%' " alt="Active Time">
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- <div class='column-b'>
+                                    <div class='card' style='background-color: #FFFAFA; width:95%; justify-content: flex-start;'>
+                                    <div class='card-body' >
+                                        <p class="pic-title"id="caption">tweets type</p>
+                                        <img src="static/img/tweets_type_v2.png" width='80%' height='80%' " alt="Active Time">
+
+                                    </div>  
+                                    </div>
+                                </div> -->
+                    
+                            </div>
+                    
+                        </div>
+
+                        <br> 
+                        <!--tweets_type-->
+                        <div class='container'>
+                        
+                            <div class='row'>
+                            
+
+                                <div class='column-full'>
+                                    <div class='card' style='background-color: #FFFAFA; width:100%; justify-content: flex-end;'>
+                                        <div class='card-body' >
+                                            <p class="pic-title"id="caption">Tweets type</p>
+                                            <img src="static/img/tweets_type_v3.png" width='80%' height='80%' " alt="Active Time">
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- <div class='column-b'>
+                                    <div class='card' style='background-color: #FFFAFA; width:95%; justify-content: flex-start;'>
+                                    <div class='card-body' >
+                                        <p class="pic-title"id="caption">tweets type</p>
+                                        <img src="static/img/tweets_type_v2.png" width='80%' height='80%' " alt="Active Time">
+
+                                    </div>  
+                                    </div>
+                                </div> -->
+                    
+                            </div>
+                    
+                        </div>
+
+                        <br> 
+                        <!-- avg fav count for diff type of tweet-->
+                        <div class='container'>
+                        
+                            <div class='row'>
+                            
+
+                                <div class='column-full'>
+                                    <div class='card' style='background-color: #FFFAFA; width:100%; justify-content: flex-end;'>
+                                        <div class='card-body' >
+                                            <p class="pic-title"id="caption">Avg fav count for diff type of tweet</p>
+                                            <img src="static/img/Average favorite count in different type of tweets_v2.png" width='80%' height='80%' " alt="Active Time">
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- <div class='column-b'>
+                                    <div class='card' style='background-color: #FFFAFA; width:95%; justify-content: flex-start;'>
+                                    <div class='card-body' >
+                                        <p class="pic-title"id="caption">tweets type</p>
+                                        <img src="static/img/tweets_type_v2.png" width='80%' height='80%' " alt="Active Time">
+
+                                    </div>  
+                                    </div>
+                                </div> -->
+                    
+                            </div>
+                    
+                        </div>
+                        <br> 
+                        <!-- tweet Length-->
+                        <div class='container'>
+                        
+                            <div class='row'>
+                            
+
+                                <div class='column-full'>
+                                    <div class='card' style='background-color: #FFFAFA; width:100%; justify-content: flex-end;'>
+                                        <div class='card-body' >
+                                            <p class="pic-title"id="caption">Tweet Length</p>
+                                            <img src="static/img/tweetLength_v2.png" width='80%' height='80%' " alt="Active Time">
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- <div class='column-b'>
+                                    <div class='card' style='background-color: #FFFAFA; width:95%; justify-content: flex-start;'>
+                                    <div class='card-body' >
+                                        <p class="pic-title"id="caption">tweets type</p>
+                                        <img src="static/img/tweets_type_v2.png" width='80%' height='80%' " alt="Active Time">
+
+                                    </div>  
+                                    </div>
+                                </div> -->
+                    
+                            </div>
+                    
+                        </div>
+
+                        <br> 
+                        <!-- seven  row -->
+                        <div class='container'>
+                        
+                            <div class='row'>
+                            
+
+                                <div class='column-full'>
+                                    <div class='card' style='background-color: #FFFAFA; width:100%; justify-content: flex-end;'>
+                                        <div class='card-body' >
+                                            <p class="pic-title"id="caption">Kindness Starts With</p>
+                                            <img src="static/img/KindnessStartsWith_v2.png" width='80%' height='80%' " alt="Active Time">
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- <div class='column-b'>
+                                    <div class='card' style='background-color: #FFFAFA; width:95%; justify-content: flex-start;'>
+                                    <div class='card-body' >
+                                        <p class="pic-title"id="caption">tweets type</p>
+                                        <img src="static/img/tweets_type_v2.png" width='80%' height='80%' " alt="Active Time">
+
+                                    </div>  
+                                    </div>
+                                </div>
+                    -->
+                            </div>
+                    
+                        </div>
+
+                        <br> 
+                        <!-- eight  row -->
+                        <div class='container'>
+                        
+                            <div class='row'>
+                                
+
+                                <div class='column-full'>
+                                    <div class='card' style='background-color: #FFFAFA; width:100%; justify-content: flex-end;'>
+                                        <div class='card-body' >
+                                            <p class="pic-title"id="caption">Gift It Forward</p>
+                                            <img src="static/img/GiftItForward_v2.png" width='80%' height='80%' " alt="Active Time">
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                    
+                                <!-- <div class='column-b'>
+                                    <div class='card' style='background-color: #FFFAFA; width:95%; justify-content: flex-start;'>
+                                        <div class='card-body' >
+                                            <p class="pic-title"id="caption">tweets type</p>
+                                            <img src="static/img/tweets_type_v2.png" width='80%' height='80%' " alt="Active Time">
+
+                                        </div>  
+                                    </div>
+                                </div> -->
+                        
+                            </div>
+                    
+                        </div>
+                    
+                        <br> 
+    <!----- #ass2 part started  ------>
+
+
+
+                            <div class= "card-title" style="text-align: center;">
+
+                                <!-- <h1 class= "card-title"style="background-image: linear-gradient(to left, rgba(255,0,0,0), rgba(255,0,0,1))">CocaCola vs Pepsi </h1> -->
+                                <h1 class= "card-title"style ="background-color: #e6e6e6;">Assingment 2 : Sentiment Analysis</h1>
+                            
+                            </div>
+                    
+                        <!-- # TWEETS SENTIMENT ANALYSIS -->
+                            <div class= "card-title" style="text-align: center;">
 
                         <!-- <h1 class= "card-title"style="background-image: linear-gradient(to left, rgba(255,0,0,0), rgba(255,0,0,1))">CocaCola vs Pepsi </h1> -->
-                        <h1 class= "card-title"style ="background-color: #e6e6e6;">Assingment 2 : Sentiment Analysis</h1>
-                    
-                    </div>
+                            <h1 class= "card-title"style ="background-color: #e6e6e6;">Campaign Sentiment Analysis</h1>
+                        
+                            </div>
+                        <!-- #TWEETS SENTIMENT ANALYSIS cola and pepsi-->
+                            <div class='container'>
+                            
+                                <div class='row'>
+                                    
+
+                                    <div class='column-a'>
+                                        <div class='card'  style='background-color: rgb(255, 219, 219); width:100%; justify-content: flex-start;'>
+                                            <p class="pic-title" style='background-color: rgb(255, 219, 219) ;text-align: center;' id="caption" >Sentiment of Cocacola </p>
+                                            <button class="cola_tsa_data_nov">November</button>
+                                            <button class="cola_tsa_data_dec">Decembeer</button>
+
+                                            <svg class="cola_tsa" width="100%" height="500"></svg>
+
+                                        </div>
+                                    </div>
+                        
+                                    
+                                    <div class='column-b'>
+                                        <div class='card'  style='background-color: #e6e6e6; width:100%; justify-content: flex-start;'>
+                                            <p class="pic-title" style='background-color: #e6e6e6 ;text-align: center;' id="caption" >Sentiment of Pepsi </p>
+                                            <button class="pepsi_tsa_data_nov">November</button>
+                                            <button class="pepsi_tsa_data_dec">Decembeer</button>
+
+                                            <svg class="pepsi_tsa" width="100%" height="500"></svg>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                        
+                            </div>
+
+                        <br> 
+                        <br> 
+                        <!-- Sentiment Distribution of CocaCola and Pepsi-->
+                            <div class='container'>
+                            
+                                <div class='row'>
+                                
+
+                                    <div class='column-full'>
+                                        <div class='card' style='background-color: #FFFAFA; width:100%; justify-content: flex-end;'>
+                                            <div class='card-body' >
+                                                <p class="pic-title"id="caption">Sentiment Distribution of CocaCola and Pepsi</p>
+                                                <img src="static/img_a2a3/Sentiment Distribution of CocaCola and Pepsi_v2.png" width='80%' height='80%' " alt="Active Time">
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                        
+                            </div>
+                        <br> 
+                        <br> 
+                        <!-- # Negative Tweets worldcloud  row -->
+                            <div class='container'>
+                            
+                                <div class='row'>
+                                    
+
+                                    <div class='column-a'>
+                                        <div class='card' style='background-color: rgb(255, 219, 219); width:100%; justify-content: flex-end;'>
+                                            <div class='card-body' style='background-color: rgb(255, 219, 219); ' >
+                                                <p class="pic-title"id="caption" style='background-color: rgb(255, 219, 219); '>Word Cloud of Negative Tweets of Cocacola </p>
+                                                <img src="static/img_a2a3/Word Cloud of Negative Tweets of CocaCola.png" width='80%' height='80%'  alt="Active Time">
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class='column-b'>
+                                        <div class='card' style='background-color: #e6e6e6; width:95%; justify-content: flex-start;'>
+                                            <div class='card-body' style='background-color: #e6e6e6'>
+                                                <p class="pic-title"id="caption" style='background-color: #e6e6e6;'>Word Cloud of Negative Tweets of Pepsi </p>
+                                                <img src="static/img_a2a3/Word Cloud of Negative Tweets of Pepsi.png" width='80%' height='80%'  alt="Active Time">
+
+                                            </div>  
+                                        </div>
+                                    </div>
+                        
+                                </div>
+                        
+                            </div>
+
+                        <br>
+                        <!-- # CAMPAIGN SENTIMENT ANALYSIS -->
+                            <div class= "card-title" style="text-align: center;">
+
+                                <!-- <h1 class= "card-title"style="background-image: linear-gradient(to left, rgba(255,0,0,0), rgba(255,0,0,1))">CocaCola vs Pepsi </h1> -->
+                                <h1 class= "card-title"style ="background-color: #e6e6e6;">Campaign Sentiment Analysis</h1>
+                            
+                            </div>
+                        <br> 
+                        <!-- Comparison of Sentiment Distribution of campaign-->
+                            <div class='container'>
+                            
+                                <div class='row'>
+                                
+
+                                    <div class='column-full'>
+                                        <div class='card' style='background-color: #FFFAFA; width:100%; justify-content: flex-end;'>
+                                            <div class='card-body' >
+                                                <p class="pic-title"id="caption">Comparison of Sentiment Distribution of campaign</p>
+                                                <img src="static/img_a2a3/Comparison of Sentiment Distribution of_v2.png" width='80%' height='80%' " alt="Active Time">
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                        
+                            </div>
+                        <br> 
+                        <br> 
+                        <!-- # campaign worldcloud  row -->
+                            <div class='container'>
+                            
+                                <div class='row'>
+                                    
+
+                                    <div class='column-a'>
+                                        <div class='card' style='background-color: rgb(255, 219, 219); width:100%; justify-content: flex-end;'>
+                                            <div class='card-body' style='background-color: rgb(255, 219, 219); ' >
+                                                <p class="pic-title"id="caption" style='background-color: rgb(255, 219, 219); '>Word Cloud of Negative Tweets of #KindnessStartsWith (Cola)</p>
+                                                <img src="static/img_a2a3/Negative_Tweets_of_KindnessStartsWith.png" width='80%' height='80%'  alt="Active Time">
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class='column-b'>
+                                        <div class='card' style='background-color: #e6e6e6; width:95%; justify-content: flex-start;'>
+                                            <div class='card-body' style='background-color: #e6e6e6'>
+                                                <p class="pic-title"id="caption" style='background-color: #e6e6e6;'>Word Cloud of Negative Tweets of #GiftItForward (Pepsi)</p>
+                                                <img src="static/img_a2a3/Negative_Tweets_of_GiftItForward.png" width='80%' height='80%'  alt="Active Time">
+
+                                            </div>  
+                                        </div>
+                                    </div>
+                        
+                                </div>
+                        
+                            </div>
+
+                        <br> 
+                        <!-- # New Product on Cola -->
+                            <div class= "card-title" style="text-align: center;">
+
+                                <!-- <h1 class= "card-title"style="background-image: linear-gradient(to left, rgba(255,0,0,0), rgba(255,0,0,1))">CocaCola vs Pepsi </h1> -->
+                                <h1 class= "card-title"style ="background-color: #e6e6e6;">New Product on Cola</h1>
+                            
+                            </div>
+                        <br> 
+                        <!-- # Cola new flavour Cinnamon worldcloud  row -->
+                            <div class='container'>
+                            
+                                <div class='row'>
+                                    <div class='column-a'>
+                                        <div class='card'  style='background-color: #e6e6e6; width:100%; justify-content: flex-start;'>
+                                            <p class="pic-title" style='background-color: #e6e6e6 ;text-align: center;' id="caption" >Sentiment Distribution of CocaCola Cinnamon</p>
+                                            <button class="data_nov">November</button>
+                                            <button class="data_dec">Decembeer</button>
+
+                                            <!-- <svg class="cola_cinamon" width='90%' height='90%'></svg> -->
+                                            <svg class="cola_cinamon" width="100%" height="500"></svg>
+
+                                        </div>
+                                    </div>
+                        
+                                    
+                                    <div class='column-b'>
+                                        <div class='card' style='background-color: #e6e6e6; width:95%; justify-content: flex-end;'>
+                                            <div class='card-body' style='background-color: #e6e6e6;'>
+                                                <p class="pic-title"id="caption" style='background-color: #e6e6e6;'>Tweets of new flavour (Cola)</p>
+                                                <img src="static/img_a2a3/Negative_Tweets_of_CocaCola_Cinnamon.png" width='80%' height='80%'  alt="Active Time">
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                        
+                            </div>
+
+                        <br> 
+
+
+                        <br> <br>
+    <!-- #ass3 part started  -->
+                        <div class= "card-title" style="text-align: center;">
+
+                            <h1 class= "card-title"style ="background-color: #e6e6e6;">Assingment 3 : Social Network Analysis (SNA)</h1>
+                        
+                        </div>
                 
-                    <br> 
+                        <br> <br>
+                        <!-- CocaCola’s Friend Network-->
 
-                    <br> <br>
+                            <div style="background-color: #e2e2e2;">
+                                <p style="text-align: center; background-color: #e2e2e2; margin: 5px; font-size: 40px; color: #f6090c ; font-weight: bold;">CocaCola’s Friend Network</p>
+                                <p style="text-align: center; background-color: #e2e2e2; margin: 0; font-size: 20px;">Total node : 62            Density of graph : 0.0524</p>
 
-                    <div class= "card-title" style="text-align: center;">
+                                <svg class= "cola_network_2" width="960" height="600"></svg>
+                                <!-- <img src="static/img_a2a3/degree_centrality_cola.png" width='20%' height='20%' style="position: absolute;" alt="Active Time"> -->
 
-                        <!-- <h1 class= "card-title"style="background-image: linear-gradient(to left, rgba(255,0,0,0), rgba(255,0,0,1))">CocaCola vs Pepsi </h1> -->
-                        <h1 class= "card-title"style ="background-color: #e6e6e6;">Assingment 3 : Social Network Analysis (SNA)</h1>
-                    
-                    </div>
+                            </div>
+
+
+                        <br> <br>
+                    <!-- Centrality  of  Cola-->
+
+                            <!-- <div class='container'>
+                            
+                                <div class='row'>
+                                    
+                                    <div class='column-c'>
+                                    <div class='card' style='background-color: #FFFAFA; width:95%; justify-content: flex-start;'>
+                                        <div class='card-body' >
+                                        <p class="pic-title"id="caption">Degree centrality cola </p>
+                                        <img src="static/img_a2a3/degree_centrality_cola.png" width='80%' height='80%'  alt="Active Time">
+
+                                        </div>
+                                    </div>
+                                    </div>
+                        
+
+                                    <div class='column-d'>
+                                    <div class='card' style='background-color: #FFFAFA; width:95%; justify-content: flex-start;'>
+                                        <div class='card-body' >
+                                        <p class="pic-title"id="caption">Betweenness centrality cola</p>
+                                        <img src="static/img_a2a3/betweenness_centrality_cola.png" width='80%' height='80%'  alt="Active Time">
+
+                                        </div>
+                                    </div>
+                                    </div>
+                        
+                                    <div class='column-e'>
+                                        <div class='card' style='background-color: #FFFAFA; width:95%; justify-content: flex-start;'>
+                                            <div class='card-body' >
+                                                <p class="pic-title"id="caption">Eigenvector centrality cola</p>
+                                                <img src="static/img_a2a3/eigenvector_centrality_cola.png" width='80%' height='80%'  alt="Active Time">
+                                            
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                        
+                            </div> -->
+
+                        <br>
+                    <!-- Centrality  of  Community analysis_cola-->
+
+                            <div class='container'>
+                                
+                                <div class='row'>
+                                
+
+                                    <div class='column-full'>
+                                        <div class='card' style='background-color: #FFFAFA; width:100%; justify-content: flex-end;'>
+                                            <div class='card-body' >
+                                                <p class="pic-title"id="caption">Community analysis cola</p>
+                                                <img src="static/img_a2a3/Community analysis_cola_2.png" width='80%' height='80%'  alt="Active Time">
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        
+                        <br> <br>
+                    <!-- Pepsi’s Friend Network-->
+
+                            <div  style="background-color: #e2e2e2;">
+                                <p style="text-align: center; background-color: #e2e2e2; margin: 5px; font-size: 40px; color: #4bbef0 ; font-weight: bold;">Pepsi’s Friend Network</p>
+                                <p style="text-align: center; background-color: #e2e2e2; margin: 0; font-size: 20px;">Total node : 56             Density of graph : 0.0630</p>
+
+
+                                <svg class= "pepsi_network_2" width="960" height="600"></svg>
+                            
+                            </div>
+                        
+                        
+                        <br> <br>
+                    <!-- Centrality  of  Pepsi-->
+
+                            <!-- <div class='container'>
+                            
+                                <div class='row'>
+                                    
+                                    <div class='column-c'>
+                                        <div class='card' style='background-color: #FFFAFA; width:95%; justify-content: flex-start;'>
+                                            <div class='card-body' >
+                                                <p class="pic-title"id="caption">Degree centrality pepsi </p>
+                                                <img src="static/img_a2a3/degree_centrality_cola.png" width='80%' height='80%' " alt="Active Time">
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class='column-d'>
+                                        <div class='card' style='background-color: #FFFAFA; width:95%; justify-content: flex-start;'>
+                                            <div class='card-body' >
+                                                <p class="pic-title"id="caption">Betweenness centrality pepsi</p>
+                                                <img src="static/img_a2a3/betweenness_centrality_cola.png" width='80%' height='80%' " alt="Active Time">
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                        
+                                    <div class='column-e'>
+                                        <div class='card' style='background-color: #FFFAFA; width:95%; justify-content: flex-start;'>
+                                            <div class='card-body' >
+                                                <p class="pic-title"id="caption">Eigenvector centrality pepsi</p>
+                                                <img src="static/img_a2a3/eigenvector_centrality_cola.png" width='80%' height='80%' " alt="Active Time">
+                                            
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
             
-                    <br>
-                    <br> <br>
-                    
-                    <div style="background-color: #e2e2e2;">
-                        <p style="text-align: center; background-color: #e2e2e2; margin: 5px; font-size: 40px; color: #f6090c ; font-weight: bold;">CocaCola’s Friend Network</p>
-                        <p style="text-align: center; background-color: #e2e2e2; margin: 0; font-size: 20px;">Total node : 62            Density of graph : 0.0524</p>
-
-                        <svg class= "cola_network_2" width="960" height="600"></svg>
-                        <!-- <img src="static/img_a2a3/degree_centrality_cola.png" width='20%' height='20%' style="position: absolute;" alt="Active Time"> -->
-
-                    </div>
-
-                    <br> <br>
-
-                    <div class='container'>
-                    
-                        <div class='row'>
-                            
-                            <div class='column-c'>
-                            <div class='card' style='background-color: #FFFAFA; width:95%; justify-content: flex-start;'>
-                                <div class='card-body' >
-                                <p class="pic-title"id="caption">Degree centrality cola </p>
-                                <img src="static/img_a2a3/degree_centrality_cola.png" width='80%' height='80%'  alt="Active Time">
-
-                                </div>
-                            </div>
-                            </div>
-                
-
-                            <div class='column-d'>
-                            <div class='card' style='background-color: #FFFAFA; width:95%; justify-content: flex-start;'>
-                                <div class='card-body' >
-                                <p class="pic-title"id="caption">Betweenness centrality cola</p>
-                                <img src="static/img_a2a3/betweenness_centrality_cola.png" width='80%' height='80%'  alt="Active Time">
-
-                                </div>
-                            </div>
-                            </div>
-                
-                            <div class='column-e'>
-                                <div class='card' style='background-color: #FFFAFA; width:95%; justify-content: flex-start;'>
-                                    <div class='card-body' >
-                                        <p class="pic-title"id="caption">Eigenvector centrality cola</p>
-                                        <img src="static/img_a2a3/eigenvector_centrality_cola.png" width='80%' height='80%'  alt="Active Time">
-                                    
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                
-                    </div>
-
-                    <br>
-                    <div class='container'>
-                        
-                        <div class='row'>
-                        
-
-                            <div class='column-full'>
-                                <div class='card' style='background-color: #FFFAFA; width:100%; justify-content: flex-end;'>
-                                    <div class='card-body' >
-                                        <p class="pic-title"id="caption">Community analysis_cola</p>
-                                        <img src="static/img_a2a3/Community analysis_cola_2.png" width='80%' height='80%'  alt="Active Time">
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                    <!-- 
-                            <div class='column-b'>
-                                <div class='card' style='background-color: #FFFAFA; width:95%; justify-content: flex-start;'>
-                                <div class='card-body' >
-                                    <p class="pic-title"id="caption">tweets type</p>
-                                    <img src="static/img/tweets_type_v2.png" width='80%' height='80%' " alt="Active Time">
-
-                                </div>  
-                                </div>
                             </div> -->
 
-                        </div>
+                        <br>
+                    <!-- Centrality  of  Community analysis Pepsi-->
 
-                    </div>
-                    
-                    <br> <br>
+                            <div class='container'>
+                                
+                                <div class='row'>
+                                
 
-                    <div  style="background-color: #e2e2e2;">
-                        <p style="text-align: center; background-color: #e2e2e2; margin: 5px; font-size: 40px; color: #4bbef0 ; font-weight: bold;">Pepsi’s Friend Network</p>
-                        <p style="text-align: center; background-color: #e2e2e2; margin: 0; font-size: 20px;">Total node : 56             Density of graph : 0.0630</p>
-
-
-                        <svg class= "pepsi_network_2" width="960" height="600"></svg>
-                    
-                    </div>
-                    
-                    
-                    <br> <br>
-
-                    <div class='container'>
-                    
-                        <div class='row'>
-                            
-                            <div class='column-c'>
-                                <div class='card' style='background-color: #FFFAFA; width:95%; justify-content: flex-start;'>
-                                    <div class='card-body' >
-                                        <p class="pic-title"id="caption">Degree centrality pepsi </p>
-                                        <img src="static/img_a2a3/degree_centrality_cola.png" width='80%' height='80%' " alt="Active Time">
-
+                                    <div class='column-full'>
+                                        <div class='card' style='background-color: #FFFAFA; width:100%; justify-content: flex-end;'>
+                                            <div class='card-body' >
+                                                <p class="pic-title"id="caption">Community analysis pepsi</p>
+                                                <img src="static/img_a2a3/Community_analysis_peppsi_2.png" width='80%' height='80%'  alt="Active Time">
+                                                
+                                            </div>
+                                        </div>
                                     </div>
+
                                 </div>
+
                             </div>
-
-                            <div class='column-d'>
-                                <div class='card' style='background-color: #FFFAFA; width:95%; justify-content: flex-start;'>
-                                    <div class='card-body' >
-                                        <p class="pic-title"id="caption">Betweenness centrality pepsi</p>
-                                        <img src="static/img_a2a3/betweenness_centrality_cola.png" width='80%' height='80%' " alt="Active Time">
-
-                                    </div>
-                                </div>
-                            </div>
-
-                
-                            <div class='column-e'>
-                                <div class='card' style='background-color: #FFFAFA; width:95%; justify-content: flex-start;'>
-                                    <div class='card-body' >
-                                        <p class="pic-title"id="caption">Eigenvector centrality pepsi</p>
-                                        <img src="static/img_a2a3/eigenvector_centrality_cola.png" width='80%' height='80%' " alt="Active Time">
-                                    
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-    
-                    </div>
-
-                    <br>
-
-                    <div class='container'>
                         
-                        <div class='row'>
-                        
-
-                            <div class='column-full'>
-                                <div class='card' style='background-color: #FFFAFA; width:100%; justify-content: flex-end;'>
-                                    <div class='card-body' >
-                                        <p class="pic-title"id="caption">Community analysis pepsi</p>
-                                        <img src="static/img_a2a3/Community_analysis_peppsi_2.png" width='80%' height='80%'  alt="Active Time">
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                    <!-- 
-                            <div class='column-b'>
-                                <div class='card' style='background-color: #FFFAFA; width:95%; justify-content: flex-start;'>
-                                <div class='card-body' >
-                                    <p class="pic-title"id="caption">tweets type</p>
-                                    <img src="static/img/tweets_type_v2.png" width='80%' height='80%' " alt="Active Time">
-
-                                </div>  
-                                </div>
-                            </div> -->
-
-                        </div>
-
-                    </div>
-                    
-                    <br> <br>
+                        <br> <br>
 
 
+            </div>
+
+
+
+        
         </div>
+        
 
-
-
-      
-    </div>
-    
-
-  </body>
+    </body>
   
-  <!-- <script src="http://marvl.infotech.monash.edu/webcola/cola.v3.min.js"></script> -->
-  <!-- <script src="https://d3js.org/d3.v4.min.js"></script> -->
-  <script src="https://d3js.org/d3.v3.min.js"></script>
+    <!-- <script src="http://marvl.infotech.monash.edu/webcola/cola.v3.min.js"></script> -->
+    <!-- <script src="https://d3js.org/d3.v4.min.js"></script> -->
+    <script src="https://d3js.org/d3.v3.min.js"></script>
   
-  <script>
+    <script>
 
 
 
-    // xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-    // function onClick(element) {
-    //   document.getElementById("img01").src = element.src;
-    //   document.getElementById("modal01").style.display = "block";
-    //   var captionText = document.getElementById("caption");
-    //   captionText.innerHTML = element.alt;
-    // }
-    // xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+        // xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+        // function onClick(element) {
+        //   document.getElementById("img01").src = element.src;
+        //   document.getElementById("modal01").style.display = "block";
+        //   var captionText = document.getElementById("caption");
+        //   captionText.innerHTML = element.alt;
+        // }
+        // xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
-    // var w = window.innerWidth;
-    // var h = window.innerHeight;
+        // var w = window.innerWidth;
+        // var h = window.innerHeight;
 
-    var svg_cola_F_network = d3.select(".cola_network_2"),
-        cola_w = +svg_cola_F_network.attr("width"),
-        cola_h = +svg_cola_F_network.attr("height");
-
-
-    var svg_pepsi_F_network = d3.select(".pepsi_network_2"),
-        pepsi_w = +svg_cola_F_network.attr("width"),
-        pepsi_h = +svg_cola_F_network.attr("height");
+        var svg_cola_F_network = d3.select(".cola_network_2"),
+            cola_w = +svg_cola_F_network.attr("width"),
+            cola_h = +svg_cola_F_network.attr("height");
 
 
-    var keyz = true, keyb = true, keyc = true, keyv = true, keyb = true, keyq = true, keyw = true, keye = true, keyr = true;
-    var key1 = true, key2 = true, key3 = true, key0 = true;
-    var keya = true, keys = true, keyd = true, keyf = true, keyg = true, keyh = true ,keyj = true;
-
-    var cola_focus_node = null, cola_highlight_node = null;
-    var pepsi_focus_node = null, pepsi_highlight_node = null;
-
-    var cola_text_center = false;
-    var cola_outline = false;
-    var pepsi_text_center = false;
-    var pepsi_outline = false;
-
-    var min_score = 0;
-    var max_score = 2;
-
-    var color = d3.scale.linear()
-      .domain([min_score, (min_score+max_score)/4*1, (min_score+max_score)/2, (min_score+max_score)/4*3, max_score])
-      // .range(["#feffcc", "yellow", "red", "purple", "blue"]);
-      .range(["#feffcc", "#faa475", "#b73351", "#a4cee3", "#5a5eaa"]);
-      // .range(d3.scale.category10());
-
-    var cola_highlight_color = "blue";
-    var pepsi_highlight_color = "blue";
-    var cola_highlight_trans = 0.1;
-    var pepsi_highlight_trans = 0.1;
-      
-    var size = d3.scale.pow().exponent(1)
-      .domain([1,100])
-      .range([8,24]);
-      
-    var cola_force = d3.layout.force()
-      .linkDistance(100)
-      .charge(-300)
-      .size([cola_w,cola_h]);
-
-    var pepsi_force = d3.layout.force()
-      .linkDistance(100)
-      .charge(-300)
-      .size([pepsi_w,pepsi_h]);
-
-    var default_node_color = "#ccc";
-    //var default_node_color = "rgb(3,190,100)";
-    var default_link_color = "#888";
-    var nominal_base_node_size = 8;
-    var nominal_text_size = 10;
-    var max_text_size = 24;
-    var nominal_stroke = 1.5;
-    var max_stroke = 4.5;
-    var max_base_node_size = 36;
-    var min_zoom = 0.1;
-    var max_zoom = 7;
-    // var svg = d3.select(".cola_network_2").append("svg");
-    var cola_zoom = d3.behavior.zoom().scaleExtent([min_zoom,max_zoom])
-    var pepsi_zoom = d3.behavior.zoom().scaleExtent([min_zoom,max_zoom])
-
-    var cola_g = svg_cola_F_network.append("g");
-    svg_cola_F_network.style("cursor","move");
-
-    var pepsi_g = svg_pepsi_F_network.append("g");
-    svg_pepsi_F_network.style("cursor","move");
+        var svg_pepsi_F_network = d3.select(".pepsi_network_2"),
+            pepsi_w = +svg_cola_F_network.attr("width"),
+            pepsi_h = +svg_cola_F_network.attr("height");
 
 
-    var cola_linkedByIndex = {};
-    var cola_link ;
-    var cola_node ;
-    var cola_text ;
+        var keyz = true, keyb = true, keyc = true, keyv = true, keyb = true, keyq = true, keyw = true, keye = true, keyr = true;
+        var key1 = true, key2 = true, key3 = true, key0 = true;
+        var keya = true, keys = true, keyd = true, keyf = true, keyg = true, keyh = true ,keyj = true;
 
-    d3.json("static/data/CocaCola_friend_network.json", function(error, graph) {
+        var cola_focus_node = null, cola_highlight_node = null;
+        var pepsi_focus_node = null, pepsi_highlight_node = null;
 
-        graph.links.forEach(function(d) {
-            cola_linkedByIndex[d.source + "," + d.target] = true;
+        var cola_text_center = false;
+        var cola_outline = false;
+        var pepsi_text_center = false;
+        var pepsi_outline = false;
+
+        var min_score = 0;
+        var max_score = 2;
+
+        var color = d3.scale.linear()
+        .domain([min_score, (min_score+max_score)/4*1, (min_score+max_score)/2, (min_score+max_score)/4*3, max_score])
+        // .range(["#feffcc", "yellow", "red", "purple", "blue"]);
+        .range(["#feffcc", "#faa475", "#b73351", "#a4cee3", "#5a5eaa"]);
+        // .range(d3.scale.category10());
+
+        var cola_highlight_color = "blue";
+        var pepsi_highlight_color = "blue";
+        var cola_highlight_trans = 0.1;
+        var pepsi_highlight_trans = 0.1;
+        
+        var size = d3.scale.pow().exponent(1)
+        .domain([1,100])
+        .range([8,24]);
+        
+        var cola_force = d3.layout.force()
+        .linkDistance(100)
+        .charge(-300)
+        .size([cola_w,cola_h]);
+
+        var pepsi_force = d3.layout.force()
+        .linkDistance(100)
+        .charge(-300)
+        .size([pepsi_w,pepsi_h]);
+
+        var default_node_color = "#ccc";
+        //var default_node_color = "rgb(3,190,100)";
+        var default_link_color = "#888";
+        var nominal_base_node_size = 8;
+        var nominal_text_size = 10;
+        var max_text_size = 24;
+        var nominal_stroke = 1.5;
+        var max_stroke = 4.5;
+        var max_base_node_size = 36;
+        var min_zoom = 0.1;
+        var max_zoom = 7;
+        // var svg = d3.select(".cola_network_2").append("svg");
+        var cola_zoom = d3.behavior.zoom().scaleExtent([min_zoom,max_zoom])
+        var pepsi_zoom = d3.behavior.zoom().scaleExtent([min_zoom,max_zoom])
+
+        var cola_g = svg_cola_F_network.append("g");
+        svg_cola_F_network.style("cursor","move");
+
+        var pepsi_g = svg_pepsi_F_network.append("g");
+        svg_pepsi_F_network.style("cursor","move");
+
+
+        var cola_linkedByIndex = {};
+        var cola_link ;
+        var cola_node ;
+        var cola_text ;
+
+        d3.json("static/data/CocaCola_friend_network.json", function(error, graph) {
+
+            graph.links.forEach(function(d) {
+                cola_linkedByIndex[d.source + "," + d.target] = true;
+            });
+
+            function cola_isConnected(a, b) {
+                    return cola_linkedByIndex[a.index + "," + b.index] || cola_linkedByIndex[b.index + "," + a.index] || a.index == b.index;
+                }
+
+            function cola_hasConnections(a) {
+                for (var property in cola_linkedByIndex) {
+                    s = property.split(",");
+                    if ((s[0] == a.index || s[1] == a.index) && cola_linkedByIndex[property]) 					return true;
+                }
+                return false;
+            }
+            
+            cola_force
+                .nodes(graph.nodes)
+                .links(graph.links)
+                .start();
+
+            cola_link = cola_g.selectAll(".link")
+                .data(graph.links)
+                .enter().append("line")
+                .attr("class", "link")
+                .style("stroke-width",nominal_stroke)
+                .style("stroke", function(d) { 
+                    if (isNumber(d.score) && d.score>=0) return color(d.score);
+                    else return default_link_color; 
+                })
+
+
+            cola_node = cola_g.selectAll(".node")
+                .data(graph.nodes)
+                .enter().append("g")
+                .attr("class", "node")
+                .call(cola_force.drag)
+
+            
+            cola_node.on("dblclick.zoom", function(d) { 
+
+                d3.event.stopPropagation();
+
+                var cola_dxy = (window.innerWidth/2-d.x*cola_zoom.scale());
+                var cola_dcy = (window.innerHeight/2-d.y*cola_zoom.scale());
+
+                cola_zoom.translate([cola_dxy,cola_dcy]);
+                cola_g.attr("transform", "translate("+ cola_dxy + "," + cola_dcy  + ")scale(" + cola_zoom.scale() + ")");
+                
+            
+            });
+            
+            
+            var cola_tocolor = "fill";
+            var cola_towhite = "stroke";
+            if (cola_outline) {
+                cola_tocolor = "stroke"
+                cola_towhite = "fill"
+            }
+                
+            
+        
+            var cola_circle = cola_node.append("path")
+                                .attr("d", d3.svg.symbol()
+                                .size(function(d) { return Math.PI*Math.pow(size(d.size)||nominal_base_node_size,2); })
+                                .type(function(d) { return d.type; }))
+                            
+                                .style(cola_tocolor, function(d) { 
+                                    if (isNumber(d.score) && d.score>=0) return color(d.score);
+                                    else return default_node_color; 
+                                })
+                                //.attr("r", function(d) { return size(d.size)||nominal_base_node_size; })
+                                .style("stroke-width", nominal_stroke)
+                                .style(cola_towhite, "white");
+                                    
+                
+            cola_text = cola_g.selectAll(".text")
+                        .data(graph.nodes)
+                        .enter().append("text")
+                        .attr("dy", ".35em")
+                        .style("font-size", nominal_text_size + "px")
+
+            if (cola_text_center)
+                cola_text.text(function(d) { return d.id; })
+                    .style("text-anchor", "middle");
+            else 
+                cola_text.attr("dx", function(d) {return (size(d.size)||nominal_base_node_size);})
+                    .text(function(d) { return '\u2002'+d.id; });
+
+            cola_node.on("mouseover", function(d) {
+                cola_set_highlight(d);
+            })
+                        .on("mousedown", function(d) { 
+                            d3.event.stopPropagation();
+                            cola_focus_node = d;
+                            cola_set_focus(d)
+                            if (cola_highlight_node === null) cola_set_highlight(d)
+                            
+                        })
+                        .on("mouseout", function(d) {
+                            cola_exit_highlight();
+
+                        })
+                        .on("mouseup",  function() {
+                        if (cola_focus_node!==null)
+                        {
+                            cola_focus_node = null;
+                            if (cola_highlight_trans<1)
+                            {
+                            
+                                cola_circle.style("opacity", 1);
+                                cola_text.style("opacity", 1);
+                                cola_link.style("opacity", 1);
+                            }
+                        }
+                    
+                        if (cola_highlight_node === null) cola_exit_highlight();
+
+                    });
+
+            function cola_exit_highlight()
+            {
+                cola_highlight_node = null;
+                if (cola_focus_node===null)
+                {
+                    svg_cola_F_network.style("cursor","move");
+                    if (cola_highlight_color!="white")
+                    {
+                        cola_circle.style(cola_towhite, "white");
+                        cola_text.style("font-weight", "normal");
+                        cola_link.style("stroke", function(o) {return (isNumber(o.score) && o.score>=0)?color(o.score):default_link_color});
+                    }
+                    
+                }
+            }
+
+            function cola_set_focus(d)
+            {	
+                if (cola_highlight_trans<1)  {
+                    cola_circle.style("opacity", function(o) {
+                        return cola_isConnected(d, o) ? 1 : cola_highlight_trans;
+                    });
+
+                    cola_text.style("opacity", function(o) {
+                        return cola_isConnected(d, o) ? 1 : cola_highlight_trans;
+                    });
+                
+                    cola_link.style("opacity", function(o) {
+                        return o.source.index == d.index || o.target.index == d.index ? 1 : cola_highlight_trans;
+                    });		
+                }
+            }
+
+
+            function cola_set_highlight(d)
+            {
+            svg_cola_F_network.style("cursor","pointer");
+            if (cola_focus_node!==null) d = cola_focus_node;
+            cola_highlight_node = d;
+
+            if (cola_highlight_color!="white")
+            {
+                    cola_circle.style(cola_towhite, function(o) {
+                            return cola_isConnected(d, o) ? cola_highlight_color : "white";
+                    });
+                    cola_text.style("font-weight", function(o) {
+                        return cola_isConnected(d, o) ? "bold" : "normal";
+                    });
+                    cola_link.style("stroke", function(o) {
+                        return o.source.index == d.index || o.target.index == d.index ? cola_highlight_color : ((isNumber(o.score) && o.score>=0)?color(o.score):default_link_color);
+
+                    });
+            }
+            }
+            
+            
+            cola_zoom.on("zoom", function() {
+        
+            var stroke = nominal_stroke;
+            if (nominal_stroke*cola_zoom.scale()>max_stroke) stroke = max_stroke/cola_zoom.scale();
+                cola_link.style("stroke-width",stroke);
+                cola_circle.style("stroke-width",stroke);
+                
+            var base_radius = nominal_base_node_size;
+            if (nominal_base_node_size*cola_zoom.scale()>max_base_node_size) base_radius = max_base_node_size/cola_zoom.scale();
+                cola_circle.attr("d", d3.svg.symbol()
+                .size(function(d) { return Math.PI*Math.pow(size(d.size)*base_radius/nominal_base_node_size||base_radius,2); })
+                .type(function(d) { return d.type; }))
+            
+            //cola_circle.attr("r", function(d) { return (size(d.size)*base_radius/nominal_base_node_size||base_radius); })
+            if (!cola_text_center) cola_text.attr("dx", function(d) { return (size(d.size)*base_radius/nominal_base_node_size||base_radius); });
+        
+            var text_size = nominal_text_size;
+            if (nominal_text_size*cola_zoom.scale()>max_text_size) text_size = max_text_size/cola_zoom.scale();
+            cola_text.style("font-size",text_size + "px");
+
+            cola_g.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+        });
+        
+            svg_cola_F_network.call(cola_zoom);	  
+            
+            cola_resize();
+            // window.focus();
+            d3.select(window).on("resize", function(){
+                                cola_resize();
+                                pepsi_resize();
+                                })
+                                .on("keydown", function(){
+                                console.log("cccckeydown");
+                                cola_keydown();
+                                pepsi_keydown();
+                                });
+                    
+            cola_force.on("tick", function() {
+            
+                cola_node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+                cola_text.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+            
+                cola_link.attr("x1", function(d) { return d.source.x; })
+                        .attr("y1", function(d) { return d.source.y; })
+                        .attr("x2", function(d) { return d.target.x; })
+                        .attr("y2", function(d) { return d.target.y; });
+                
+                cola_node.attr("cx", function(d) { return d.x; })
+                        .attr("cy", function(d) { return d.y; });
+            });
+        
         });
 
-        function cola_isConnected(a, b) {
-                return cola_linkedByIndex[a.index + "," + b.index] || cola_linkedByIndex[b.index + "," + a.index] || a.index == b.index;
+        var pepsi_linkedByIndex = {};
+        var pepsi_link ;
+        var pepsi_node ;
+        var pepsi_text ;
+
+
+        d3.json("static/data/Pepsi_friend_network.json", function(error, graph) {
+
+            graph.links.forEach(function(d) {
+
+                pepsi_linkedByIndex[d.source + "," + d.target] = true;
+
+            });
+
+            function pepsi_isConnected(a, b) {
+                return pepsi_linkedByIndex[a.index + "," + b.index] || pepsi_linkedByIndex[b.index + "," + a.index] || a.index == b.index;
             }
 
-        function cola_hasConnections(a) {
-            for (var property in cola_linkedByIndex) {
-                s = property.split(",");
-                if ((s[0] == a.index || s[1] == a.index) && cola_linkedByIndex[property]) 					return true;
+            function pepsi_hasConnections(a) {
+
+                for (var property in pepsi_linkedByIndex) {
+
+                    s = property.split(",");
+                    if ((s[0] == a.index || s[1] == a.index) && pepsi_linkedByIndex[property]) 					
+                    return true;
+                }
+                return false;
             }
-            return false;
-        }
-        
-        cola_force
+            
+            pepsi_force
             .nodes(graph.nodes)
             .links(graph.links)
             .start();
 
-        cola_link = cola_g.selectAll(".link")
-            .data(graph.links)
-            .enter().append("line")
-            .attr("class", "link")
-            .style("stroke-width",nominal_stroke)
-            .style("stroke", function(d) { 
-                if (isNumber(d.score) && d.score>=0) return color(d.score);
-                else return default_link_color; 
-            })
+            pepsi_link = pepsi_g.selectAll(".link")
+                        .data(graph.links)
+                        .enter().append("line")
+                        .attr("class", "link")
+                        .style("stroke-width",nominal_stroke)
+                        .style("stroke", function(d) { 
+                            if (isNumber(d.score) && d.score>=0) return color(d.score);
+                            else return default_link_color; 
+                        })
 
 
-        cola_node = cola_g.selectAll(".node")
-            .data(graph.nodes)
-            .enter().append("g")
-            .attr("class", "node")
-            .call(cola_force.drag)
+            pepsi_node = pepsi_g.selectAll(".node")
+                        .data(graph.nodes)
+                        .enter().append("g")
+                        .attr("class", "node")
+                        .call(pepsi_force.drag)
 
-        
-        cola_node.on("dblclick.zoom", function(d) { 
-
-            d3.event.stopPropagation();
-
-            var cola_dxy = (window.innerWidth/2-d.x*cola_zoom.scale());
-            var cola_dcy = (window.innerHeight/2-d.y*cola_zoom.scale());
-
-            cola_zoom.translate([cola_dxy,cola_dcy]);
-            cola_g.attr("transform", "translate("+ cola_dxy + "," + cola_dcy  + ")scale(" + cola_zoom.scale() + ")");
             
-        
-        });
-        
-        
-        var cola_tocolor = "fill";
-        var cola_towhite = "stroke";
-        if (cola_outline) {
-            cola_tocolor = "stroke"
-            cola_towhite = "fill"
-        }
+            pepsi_node.on("dblclick.zoom", function(d) { 
+                
+                d3.event.stopPropagation();
+                var pepsi_dxy = (window.innerWidth/2-d.x*pepsi_zoom.scale());
+                var pepsi_dcy = (window.innerHeight/2-d.y*pepsi_zoom.scale());
+                pepsi_zoom.translate([pepsi_dxy,pepsi_dcy]);
+                pepsi_g.attr("transform", "translate("+ pepsi_dxy + "," + pepsi_dcy  + ")scale(" + pepsi_zoom.scale() + ")");
+                
             
-        
-      
-        var cola_circle = cola_node.append("path")
+            });
+            
+
+
+            
+            var pepsi_tocolor = "fill";
+            var pepsi_towhite = "stroke";
+            if (pepsi_outline) {
+                pepsi_tocolor = "stroke"
+                pepsi_towhite = "fill"
+            }
+            
+            
+            var pepsi_circle = pepsi_node.append("path")
                             .attr("d", d3.svg.symbol()
                             .size(function(d) { return Math.PI*Math.pow(size(d.size)||nominal_base_node_size,2); })
                             .type(function(d) { return d.type; }))
                         
-                            .style(cola_tocolor, function(d) { 
+                            .style(pepsi_tocolor, function(d) { 
                                 if (isNumber(d.score) && d.score>=0) return color(d.score);
                                 else return default_node_color; 
                             })
-                            //.attr("r", function(d) { return size(d.size)||nominal_base_node_size; })
+                                //.attr("r", function(d) { return size(d.size)||nominal_base_node_size; })
                             .style("stroke-width", nominal_stroke)
-                            .style(cola_towhite, "white");
-                                
-            
-        cola_text = cola_g.selectAll(".text")
-                    .data(graph.nodes)
-                    .enter().append("text")
-                    .attr("dy", ".35em")
-                    .style("font-size", nominal_text_size + "px")
+                            .style(pepsi_towhite, "white");
+                
+                
+            pepsi_text = pepsi_g.selectAll(".text")
+                        .data(graph.nodes)
+                        .enter().append("text")
+                        .attr("dy", ".35em")
+                        .style("font-size", nominal_text_size + "px")
 
-        if (cola_text_center)
-            cola_text.text(function(d) { return d.id; })
+            if (pepsi_text_center)
+                pepsi_text.text(function(d) { return d.id; })
                 .style("text-anchor", "middle");
-        else 
-            cola_text.attr("dx", function(d) {return (size(d.size)||nominal_base_node_size);})
+            else 
+                pepsi_text.attr("dx", function(d) {return (size(d.size)||nominal_base_node_size);})
                 .text(function(d) { return '\u2002'+d.id; });
 
-        cola_node.on("mouseover", function(d) {
-            cola_set_highlight(d);
-        })
+            pepsi_node.on("mouseover", function(d) {
+                            pepsi_set_highlight(d);
+                        })
                     .on("mousedown", function(d) { 
+
                         d3.event.stopPropagation();
-                        cola_focus_node = d;
-                        cola_set_focus(d)
-                        if (cola_highlight_node === null) cola_set_highlight(d)
+                        pepsi_focus_node = d;
+                        pepsi_set_focus(d)
+                        if (pepsi_highlight_node === null) pepsi_set_highlight(d)
                         
-                    })
+                        })
                     .on("mouseout", function(d) {
-                        cola_exit_highlight();
-
-                    })
+                            pepsi_exit_highlight();
+                        })
                     .on("mouseup",  function() {
-                    if (cola_focus_node!==null)
-                    {
-                        cola_focus_node = null;
-                        if (cola_highlight_trans<1)
-                        {
+                        if (pepsi_focus_node!==null)
+                            {
+                                pepsi_focus_node = null;
+                                if (pepsi_highlight_trans<1)
+                                {
+                                
+                                pepsi_circle.style("opacity", 1);
+                                pepsi_text.style("opacity", 1);
+                                pepsi_link.style("opacity", 1);
+                                }
+                            }
                         
-                            cola_circle.style("opacity", 1);
-                            cola_text.style("opacity", 1);
-                            cola_link.style("opacity", 1);
-                        }
-                    }
-                
-                    if (cola_highlight_node === null) cola_exit_highlight();
+                        if (pepsi_highlight_node === null) pepsi_exit_highlight();
+                    });
 
-                });
+    
 
-        function cola_exit_highlight()
-        {
-            cola_highlight_node = null;
-            if (cola_focus_node===null)
+
+            function pepsi_exit_highlight()
             {
-                svg_cola_F_network.style("cursor","move");
-                if (cola_highlight_color!="white")
+            pepsi_highlight_node = null;
+            if (pepsi_focus_node===null)
+            {
+                svg_pepsi_F_network.style("cursor","move");
+                if (pepsi_highlight_color!="white")
                 {
-                    cola_circle.style(cola_towhite, "white");
-                    cola_text.style("font-weight", "normal");
-                    cola_link.style("stroke", function(o) {return (isNumber(o.score) && o.score>=0)?color(o.score):default_link_color});
+                    pepsi_circle.style(pepsi_towhite, "white");
+                    pepsi_text.style("font-weight", "normal");
+                    pepsi_link.style("stroke", function(o) {return (isNumber(o.score) && o.score>=0)?color(o.score):default_link_color});
                 }
+            }
+            }
+
+            function pepsi_set_focus(d){
+            if (pepsi_highlight_trans<1)  {
+
+                pepsi_circle.style("opacity", function(o) {
+                            return pepsi_isConnected(d, o) ? 1 : pepsi_highlight_trans;
+                            });
+
+                pepsi_text.style("opacity", function(o) {
+                            return pepsi_isConnected(d, o) ? 1 : pepsi_highlight_trans;
+                            });
                 
+                pepsi_link.style("opacity", function(o) {
+                            return o.source.index == d.index || o.target.index == d.index ? 1 : pepsi_highlight_trans;
+                            });		
             }
-        }
-
-        function cola_set_focus(d)
-        {	
-            if (cola_highlight_trans<1)  {
-                cola_circle.style("opacity", function(o) {
-                    return cola_isConnected(d, o) ? 1 : cola_highlight_trans;
-                });
-
-                cola_text.style("opacity", function(o) {
-                    return cola_isConnected(d, o) ? 1 : cola_highlight_trans;
-                });
-            
-                cola_link.style("opacity", function(o) {
-                    return o.source.index == d.index || o.target.index == d.index ? 1 : cola_highlight_trans;
-                });		
             }
-        }
 
 
-        function cola_set_highlight(d)
-        {
-        svg_cola_F_network.style("cursor","pointer");
-        if (cola_focus_node!==null) d = cola_focus_node;
-        cola_highlight_node = d;
+            function pepsi_set_highlight(d){
 
-        if (cola_highlight_color!="white")
-        {
-                cola_circle.style(cola_towhite, function(o) {
-                        return cola_isConnected(d, o) ? cola_highlight_color : "white";
+            svg_pepsi_F_network.style("cursor","pointer");
+            if (pepsi_focus_node!==null) d = pepsi_focus_node;
+
+            pepsi_highlight_node = d;
+
+            if (pepsi_highlight_color!="white")
+            {
+                pepsi_circle.style(pepsi_towhite, function(o) {
+                        return pepsi_isConnected(d, o) ? pepsi_highlight_color : "white";
                 });
-                cola_text.style("font-weight", function(o) {
-                    return cola_isConnected(d, o) ? "bold" : "normal";
+                pepsi_text.style("font-weight", function(o) {
+                        return pepsi_isConnected(d, o) ? "bold" : "normal";
                 });
-                cola_link.style("stroke", function(o) {
-                    return o.source.index == d.index || o.target.index == d.index ? cola_highlight_color : ((isNumber(o.score) && o.score>=0)?color(o.score):default_link_color);
+                pepsi_link.style("stroke", function(o) {
+                        return o.source.index == d.index || o.target.index == d.index ? pepsi_highlight_color : ((isNumber(o.score) && o.score>=0)?color(o.score):default_link_color);
 
                 });
-        }
-        }
-        
-        
-        cola_zoom.on("zoom", function() {
-      
-        var stroke = nominal_stroke;
-        if (nominal_stroke*cola_zoom.scale()>max_stroke) stroke = max_stroke/cola_zoom.scale();
-            cola_link.style("stroke-width",stroke);
-            cola_circle.style("stroke-width",stroke);
+            }
+            }
             
-        var base_radius = nominal_base_node_size;
-        if (nominal_base_node_size*cola_zoom.scale()>max_base_node_size) base_radius = max_base_node_size/cola_zoom.scale();
-            cola_circle.attr("d", d3.svg.symbol()
-            .size(function(d) { return Math.PI*Math.pow(size(d.size)*base_radius/nominal_base_node_size||base_radius,2); })
-            .type(function(d) { return d.type; }))
-        
-        //cola_circle.attr("r", function(d) { return (size(d.size)*base_radius/nominal_base_node_size||base_radius); })
-        if (!cola_text_center) cola_text.attr("dx", function(d) { return (size(d.size)*base_radius/nominal_base_node_size||base_radius); });
-      
-        var text_size = nominal_text_size;
-        if (nominal_text_size*cola_zoom.scale()>max_text_size) text_size = max_text_size/cola_zoom.scale();
-        cola_text.style("font-size",text_size + "px");
+            
+            pepsi_zoom.on("zoom", function() {
+            
+                var stroke = nominal_stroke;
+                if (nominal_stroke*pepsi_zoom.scale()>max_stroke) stroke = max_stroke/pepsi_zoom.scale();
+                pepsi_link.style("stroke-width",stroke);
+                pepsi_circle.style("stroke-width",stroke);
+                    
+                var base_radius = nominal_base_node_size;
+                if (nominal_base_node_size*pepsi_zoom.scale()>max_base_node_size) base_radius = max_base_node_size/pepsi_zoom.scale();
+                pepsi_circle.attr("d", d3.svg.symbol()
+                            .size(function(d) { return Math.PI*Math.pow(size(d.size)*base_radius/nominal_base_node_size||base_radius,2); })
+                            .type(function(d) { return d.type; }))
+                    
+                //pepsi_circle.attr("r", function(d) { return (size(d.size)*base_radius/nominal_base_node_size||base_radius); })
+                if (!pepsi_text_center) pepsi_text.attr("dx", function(d) { return (size(d.size)*base_radius/nominal_base_node_size||base_radius); });
+                
+                var text_size = nominal_text_size;
+                if (nominal_text_size*pepsi_zoom.scale()>max_text_size) text_size = max_text_size/pepsi_zoom.scale();
+                pepsi_text.style("font-size",text_size + "px");
 
-        cola_g.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
-    });
-      
-        svg_cola_F_network.call(cola_zoom);	  
-        
-        cola_resize();
-        // window.focus();
-        d3.select(window).on("resize", function(){
-                            cola_resize();
-                            pepsi_resize();
+                pepsi_g.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+
+            });
+            
+            svg_pepsi_F_network.call(pepsi_zoom);	  
+            
+            pepsi_resize();
+            // window.focus();
+            // d3.select(window).on("resize", pepsi_resize).on("keydown", pepsi_keydown)
+            //                 .on("resize", cola_resize).on("keydown", cola_keydown);
+            d3.select(window).on("resize", function(){
+                                cola_resize();
+                                pepsi_resize();
                             })
                             .on("keydown", function(){
-                            console.log("cccckeydown");
-                            cola_keydown();
-                            pepsi_keydown();
+                                console.log("keydown");
+                                cola_keydown();
+                                pepsi_keydown();
                             });
-                  
-        cola_force.on("tick", function() {
-        
-            cola_node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
-            cola_text.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
-        
-            cola_link.attr("x1", function(d) { return d.source.x; })
-                    .attr("y1", function(d) { return d.source.y; })
-                    .attr("x2", function(d) { return d.target.x; })
-                    .attr("y2", function(d) { return d.target.y; });
-            
-            cola_node.attr("cx", function(d) { return d.x; })
-                    .attr("cy", function(d) { return d.y; });
-         });
-      
-    });
-
-    var pepsi_linkedByIndex = {};
-    var pepsi_link ;
-    var pepsi_node ;
-    var pepsi_text ;
-
-
-    d3.json("static/data/Pepsi_friend_network.json", function(error, graph) {
-
-        graph.links.forEach(function(d) {
-
-              pepsi_linkedByIndex[d.source + "," + d.target] = true;
-
-        });
-
-        function pepsi_isConnected(a, b) {
-            return pepsi_linkedByIndex[a.index + "," + b.index] || pepsi_linkedByIndex[b.index + "," + a.index] || a.index == b.index;
-        }
-
-        function pepsi_hasConnections(a) {
-
-            for (var property in pepsi_linkedByIndex) {
-
-                s = property.split(",");
-                if ((s[0] == a.index || s[1] == a.index) && pepsi_linkedByIndex[property]) 					
-                return true;
-            }
-            return false;
-        }
-        
-        pepsi_force
-          .nodes(graph.nodes)
-          .links(graph.links)
-          .start();
-
-        pepsi_link = pepsi_g.selectAll(".link")
-                    .data(graph.links)
-                    .enter().append("line")
-                    .attr("class", "link")
-                    .style("stroke-width",nominal_stroke)
-                    .style("stroke", function(d) { 
-                        if (isNumber(d.score) && d.score>=0) return color(d.score);
-                        else return default_link_color; 
-                    })
-
-
-        pepsi_node = pepsi_g.selectAll(".node")
-                    .data(graph.nodes)
-                    .enter().append("g")
-                    .attr("class", "node")
-                    .call(pepsi_force.drag)
-
-        
-        pepsi_node.on("dblclick.zoom", function(d) { 
-            
-            d3.event.stopPropagation();
-            var pepsi_dxy = (window.innerWidth/2-d.x*pepsi_zoom.scale());
-            var pepsi_dcy = (window.innerHeight/2-d.y*pepsi_zoom.scale());
-            pepsi_zoom.translate([pepsi_dxy,pepsi_dcy]);
-            pepsi_g.attr("transform", "translate("+ pepsi_dxy + "," + pepsi_dcy  + ")scale(" + pepsi_zoom.scale() + ")");
-            
-        
-        });
-        
-
-
-        
-        var pepsi_tocolor = "fill";
-        var pepsi_towhite = "stroke";
-        if (pepsi_outline) {
-            pepsi_tocolor = "stroke"
-            pepsi_towhite = "fill"
-        }
-        
-        
-        var pepsi_circle = pepsi_node.append("path")
-                          .attr("d", d3.svg.symbol()
-                          .size(function(d) { return Math.PI*Math.pow(size(d.size)||nominal_base_node_size,2); })
-                          .type(function(d) { return d.type; }))
                     
-                          .style(pepsi_tocolor, function(d) { 
-                              if (isNumber(d.score) && d.score>=0) return color(d.score);
-                              else return default_node_color; 
-                          })
-                            //.attr("r", function(d) { return size(d.size)||nominal_base_node_size; })
-                          .style("stroke-width", nominal_stroke)
-                          .style(pepsi_towhite, "white");
-              
-              
-        pepsi_text = pepsi_g.selectAll(".text")
-                    .data(graph.nodes)
-                    .enter().append("text")
-                    .attr("dy", ".35em")
-                    .style("font-size", nominal_text_size + "px")
-
-        if (pepsi_text_center)
-            pepsi_text.text(function(d) { return d.id; })
-            .style("text-anchor", "middle");
-        else 
-            pepsi_text.attr("dx", function(d) {return (size(d.size)||nominal_base_node_size);})
-            .text(function(d) { return '\u2002'+d.id; });
-
-        pepsi_node.on("mouseover", function(d) {
-                        pepsi_set_highlight(d);
-                    })
-                  .on("mousedown", function(d) { 
-
-                      d3.event.stopPropagation();
-                      pepsi_focus_node = d;
-                      pepsi_set_focus(d)
-                      if (pepsi_highlight_node === null) pepsi_set_highlight(d)
+            pepsi_force.on("tick", function() {
+            
+                pepsi_node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+                pepsi_text.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+                
+                pepsi_link.attr("x1", function(d) { return d.source.x; })
+                        .attr("y1", function(d) { return d.source.y; })
+                        .attr("x2", function(d) { return d.target.x; })
+                        .attr("y2", function(d) { return d.target.y; });
                     
-                    })
-                  .on("mouseout", function(d) {
-                        pepsi_exit_highlight();
-                    })
-                  .on("mouseup",  function() {
-                      if (pepsi_focus_node!==null)
-                        {
-                            pepsi_focus_node = null;
-                            if (pepsi_highlight_trans<1)
-                            {
-                            
-                              pepsi_circle.style("opacity", 1);
-                              pepsi_text.style("opacity", 1);
-                              pepsi_link.style("opacity", 1);
-                            }
-                        }
-                      
-                      if (pepsi_highlight_node === null) pepsi_exit_highlight();
-                  });
-
-   
-
-
-        function pepsi_exit_highlight()
-        {
-          pepsi_highlight_node = null;
-          if (pepsi_focus_node===null)
-          {
-              svg_pepsi_F_network.style("cursor","move");
-              if (pepsi_highlight_color!="white")
-              {
-                pepsi_circle.style(pepsi_towhite, "white");
-                pepsi_text.style("font-weight", "normal");
-                pepsi_link.style("stroke", function(o) {return (isNumber(o.score) && o.score>=0)?color(o.score):default_link_color});
-              }
-          }
-        }
-
-        function pepsi_set_focus(d){
-        if (pepsi_highlight_trans<1)  {
-
-            pepsi_circle.style("opacity", function(o) {
-                        return pepsi_isConnected(d, o) ? 1 : pepsi_highlight_trans;
-                        });
-
-            pepsi_text.style("opacity", function(o) {
-                        return pepsi_isConnected(d, o) ? 1 : pepsi_highlight_trans;
-                        });
-              
-            pepsi_link.style("opacity", function(o) {
-                        return o.source.index == d.index || o.target.index == d.index ? 1 : pepsi_highlight_trans;
-                        });		
-          }
-        }
-
-
-        function pepsi_set_highlight(d){
-
-          svg_pepsi_F_network.style("cursor","pointer");
-          if (pepsi_focus_node!==null) d = pepsi_focus_node;
-
-          pepsi_highlight_node = d;
-
-          if (pepsi_highlight_color!="white")
-          {
-              pepsi_circle.style(pepsi_towhite, function(o) {
-                    return pepsi_isConnected(d, o) ? pepsi_highlight_color : "white";
-              });
-              pepsi_text.style("font-weight", function(o) {
-                    return pepsi_isConnected(d, o) ? "bold" : "normal";
-              });
-              pepsi_link.style("stroke", function(o) {
-                    return o.source.index == d.index || o.target.index == d.index ? pepsi_highlight_color : ((isNumber(o.score) && o.score>=0)?color(o.score):default_link_color);
-
-              });
-          }
-        }
-          
-          
-        pepsi_zoom.on("zoom", function() {
-          
-            var stroke = nominal_stroke;
-            if (nominal_stroke*pepsi_zoom.scale()>max_stroke) stroke = max_stroke/pepsi_zoom.scale();
-            pepsi_link.style("stroke-width",stroke);
-            pepsi_circle.style("stroke-width",stroke);
-                
-            var base_radius = nominal_base_node_size;
-            if (nominal_base_node_size*pepsi_zoom.scale()>max_base_node_size) base_radius = max_base_node_size/pepsi_zoom.scale();
-            pepsi_circle.attr("d", d3.svg.symbol()
-                        .size(function(d) { return Math.PI*Math.pow(size(d.size)*base_radius/nominal_base_node_size||base_radius,2); })
-                        .type(function(d) { return d.type; }))
-                
-            //pepsi_circle.attr("r", function(d) { return (size(d.size)*base_radius/nominal_base_node_size||base_radius); })
-            if (!pepsi_text_center) pepsi_text.attr("dx", function(d) { return (size(d.size)*base_radius/nominal_base_node_size||base_radius); });
-            
-            var text_size = nominal_text_size;
-            if (nominal_text_size*pepsi_zoom.scale()>max_text_size) text_size = max_text_size/pepsi_zoom.scale();
-            pepsi_text.style("font-size",text_size + "px");
-
-            pepsi_g.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
-
-          });
-          
-        svg_pepsi_F_network.call(pepsi_zoom);	  
+                pepsi_node.attr("cx", function(d) { return d.x; })
+                        .attr("cy", function(d) { return d.y; });
+            });
         
-        pepsi_resize();
-        // window.focus();
-        // d3.select(window).on("resize", pepsi_resize).on("keydown", pepsi_keydown)
-        //                 .on("resize", cola_resize).on("keydown", cola_keydown);
-        d3.select(window).on("resize", function(){
-                            cola_resize();
-                            pepsi_resize();
-                        })
-                        .on("keydown", function(){
-                            console.log("keydown");
-                            cola_keydown();
-                            pepsi_keydown();
-                        });
-                  
-        pepsi_force.on("tick", function() {
-          
-            pepsi_node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
-            pepsi_text.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
-            
-            pepsi_link.attr("x1", function(d) { return d.source.x; })
-                    .attr("y1", function(d) { return d.source.y; })
-                    .attr("x2", function(d) { return d.target.x; })
-                    .attr("y2", function(d) { return d.target.y; });
-                
-            pepsi_node.attr("cx", function(d) { return d.x; })
-                    .attr("cy", function(d) { return d.y; });
-        });
-      
-    });
-
-
-    function pepsi_resize() {
-
-      var width = window.innerWidth, height = window.innerHeight;
-      svg_pepsi_F_network.attr("width", width).attr("height", height);
-        
-      pepsi_force.size([pepsi_force.size()[0]+(width-pepsi_w)/pepsi_zoom.scale(),pepsi_force.size()[1]+(height-pepsi_h)/pepsi_zoom.scale()]).resume();
-      pepsi_w = width;
-      pepsi_h = height;
-
-    }
-
-    function pepsi_keydown() {
-
-    //   console.log("pepsi");
-
-      if (d3.event.keyCode==32) {  pepsi_force.stop();}
-      else if (d3.event.keyCode>=48 && d3.event.keyCode<=90 && !d3.event.ctrlKey && !d3.event.altKey && !d3.event.metaKey)
-      {
-        switch (String.fromCharCode(d3.event.keyCode)) {
-
-
-          case "Z": keyz = !keyz; console.log("case Z");break;
-          case "B": keyb = !keyb; break;
-          case "C": keyc = !keyc; break;
-          case "V": keyv = !keyv; break;
-          case "Q": keyq = !keyq; break;
-          case "W": keyw = !keyw; break;
-          case "E": keye = !keye; break;
-          case "R": keyr = !keyr; break;
-
-          case "A": keya = !keya; console.log("pppppcase A");break;
-          case "S": keys = !keys; console.log("pppppcase S");break;
-          case "D": keyd = !keyd; console.log("pppppcase D");break;
-          case "F": keyf = !keyf; console.log("pppppcase F");break;
-          case "G": keyg = !keyg; console.log("pppppcase G");break;
-          case "H": keyh = !keyh; console.log("pppppcase H");break;
-
-          
-          case "1": key1 = !key1; break;
-          case "2": key2 = !key2; break;
-          case "3": key3 = !key3; break;
-          case "0": key0 = !key0; break;
-
-
-        }
-          
-
-
-        pepsi_link.style("display", function(d) {
-
-            var pepsi_flag  = vis_by_type(d.source.type)&&vis_by_type(d.target.type)&&vis_by_node_score(d.source.score)&&vis_by_node_score(d.target.score)&&vis_by_link_score(d.score);
-            pepsi_linkedByIndex[d.source.index + "," + d.target.index] = pepsi_flag;
-
-            return pepsi_flag?"inline":"none";
-
         });
 
-        pepsi_node.style("display", function(d) {
 
-            return (key0||pepsi_hasConnections(d))&&vis_by_type(d.type)&&vis_by_node_score(d.score)?"inline":"none";
-        });
+        function pepsi_resize() {
 
-        pepsi_text.style("display", function(d) {
-
-            return (key0||pepsi_hasConnections(d))&&vis_by_type(d.type)&&vis_by_node_score(d.score)?"inline":"none";
-        });
-
-              if (pepsi_highlight_node !== null)
-              {
-                if ((key0||pepsi_hasConnections(pepsi_highlight_node))&&vis_by_type(pepsi_highlight_node.type)&&vis_by_node_score(pepsi_highlight_node.score)) { 
-                    if (pepsi_focus_node!==null) pepsi_set_focus(pepsi_focus_node);
-                    pepsi_set_highlight(pepsi_highlight_node);
-                }
-                else {pepsi_exit_highlight();}
-              }
-
-      }
-    }
-
-
- 
-    function cola_resize() {
-
+        // var width = pepsi_w, height = pepsi_h;
         var width = window.innerWidth, height = window.innerHeight;
-        svg_cola_F_network.attr("width", width).attr("height", height);
-        
-        cola_force.size([cola_force.size()[0]+(width-cola_w)/cola_zoom.scale(),cola_force.size()[1]+(height-cola_h)/cola_zoom.scale()]).resume();
-        cola_w = width;
-        cola_h = height;
+        svg_pepsi_F_network.attr("width", width).attr("height", height);
+            
+        pepsi_force.size([pepsi_force.size()[0]+(width-pepsi_w)/pepsi_zoom.scale(),pepsi_force.size()[1]+(height-pepsi_h)/pepsi_zoom.scale()]).resume();
+        pepsi_w = width;
+        pepsi_h = height;
 
-      }
-      
-    function cola_keydown() {
+        }
 
-      console.log("cola");
+        function pepsi_keydown() {
 
+        //   console.log("pepsi");
 
-      if (d3.event.keyCode==32) {  cola_force.stop();}
-      else if (d3.event.keyCode>=48 && d3.event.keyCode<=90 && !d3.event.ctrlKey && !d3.event.altKey && !d3.event.metaKey)
-      {
-        switch (String.fromCharCode(d3.event.keyCode)) {
+        if (d3.event.keyCode==32) {  pepsi_force.stop();}
+        else if (d3.event.keyCode>=48 && d3.event.keyCode<=90 && !d3.event.ctrlKey && !d3.event.altKey && !d3.event.metaKey)
+        {
+            switch (String.fromCharCode(d3.event.keyCode)) {
+
 
             case "Z": keyz = !keyz; console.log("case Z");break;
-            case "S": keyb = !keyb; break;
+            case "B": keyb = !keyb; break;
             case "C": keyc = !keyc; break;
-            case "R": keyv = !keyv; break;
-            case "X": keyb = !keyb; break;
-            case "D": keyq = !keyq; break;
+            case "V": keyv = !keyv; break;
+            case "Q": keyq = !keyq; break;
+            case "W": keyw = !keyw; break;
+            case "E": keye = !keye; break;
+            case "R": keyr = !keyr; break;
 
+            case "A": keya = !keya; console.log("pppppcase A");break;
+            case "S": keys = !keys; console.log("pppppcase S");break;
+            case "D": keyd = !keyd; console.log("pppppcase D");break;
+            case "F": keyf = !keyf; console.log("pppppcase F");break;
+            case "G": keyg = !keyg; console.log("pppppcase G");break;
+            case "H": keyh = !keyh; console.log("pppppcase H");break;
 
-            case "A": keya = !keya; console.log("case A");break;
-            case "S": keys = !keys; console.log("case S");break;
-            case "D": keyd = !keyd; console.log("case D");break;
-            case "F": keyf = !keyf; console.log("case F");break;
-            case "G": keyg = !keyg; console.log("case G");break;
-            case "H": keyh = !keyh; console.log("case H");break;
-
+            
             case "1": key1 = !key1; break;
             case "2": key2 = !key2; break;
             case "3": key3 = !key3; break;
             case "0": key0 = !key0; break;
 
-        }
-          
-        cola_link.style("display", function(d) {
 
-            var flag  = vis_by_type(d.source.type)&&vis_by_type(d.target.type)&&vis_by_node_score(d.source.score)&&vis_by_node_score(d.target.score)&&vis_by_link_score(d.score);
-            cola_linkedByIndex[d.source.index + "," + d.target.index] = flag;
-            
-            return flag?"inline":"none";
-        });
-
-        cola_node.style("display", function(d) {
-// 
-            return (key0||cola_hasConnections(d))&&vis_by_type(d.type)&&vis_by_node_score(d.score)?"inline":"none";
-        });
-
-
-        cola_text.style("display", function(d) {
-
-            return (key0||cola_hasConnections(d))&&vis_by_type(d.type)&&vis_by_node_score(d.score)?"inline":"none";
-        });
-              
-        if (cola_highlight_node !== null)
-        {
-            if ((key0||cola_hasConnections(cola_highlight_node))&&vis_by_type(cola_highlight_node.type)&&vis_by_node_score(cola_highlight_node.score)) { 
-                if (cola_focus_node!==null) cola_set_focus(cola_focus_node);
-                cola_set_highlight(cola_highlight_node);
             }
-            else {cola_exit_highlight();}
+            
+
+
+            pepsi_link.style("display", function(d) {
+
+                var pepsi_flag  = vis_by_type(d.source.type)&&vis_by_type(d.target.type)&&vis_by_node_score(d.source.score)&&vis_by_node_score(d.target.score)&&vis_by_link_score(d.score);
+                pepsi_linkedByIndex[d.source.index + "," + d.target.index] = pepsi_flag;
+
+                return pepsi_flag?"inline":"none";
+
+            });
+
+            pepsi_node.style("display", function(d) {
+
+                return (key0||pepsi_hasConnections(d))&&vis_by_type(d.type)&&vis_by_node_score(d.score)?"inline":"none";
+            });
+
+            pepsi_text.style("display", function(d) {
+
+                return (key0||pepsi_hasConnections(d))&&vis_by_type(d.type)&&vis_by_node_score(d.score)?"inline":"none";
+            });
+
+                if (pepsi_highlight_node !== null)
+                {
+                    if ((key0||pepsi_hasConnections(pepsi_highlight_node))&&vis_by_type(pepsi_highlight_node.type)&&vis_by_node_score(pepsi_highlight_node.score)) { 
+                        if (pepsi_focus_node!==null) pepsi_set_focus(pepsi_focus_node);
+                        pepsi_set_highlight(pepsi_highlight_node);
+                    }
+                    else {pepsi_exit_highlight();}
+                }
+
         }
-      }	
-    }
+        }
+
+
     
+        function cola_resize() {
 
-    function vis_by_type(type)
-    {
-      switch (type) {
-        case "circle": return keyz;
-        case "square": return keyb;
-        case "triangle-up": return keyc;
-        case "diamond": return keyv;
-        case "cross": return keyb;
-        case "triangle-down": return keyq;
-        default: return true;
-    }
-    }
+            // var width = cola_h, height = cola_h;
+            var width = window.innerWidth, height = window.innerHeight;
+            svg_cola_F_network.attr("width", width).attr("height", height);
+            
+            cola_force.size([cola_force.size()[0]+(width-cola_w)/cola_zoom.scale(),cola_force.size()[1]+(height-cola_h)/cola_zoom.scale()]).resume();
+            cola_w = width;
+            cola_h = height;
 
-    function vis_by_node_score(score)
-    {
-        if (isNumber(score))
-        {
-            if (score>=2.000) return keyh;
-            else if (score>=1.800) return keyg;
-            else if (score>=1.5) return keyf;
-            else if (score>=1.0) return keyd;
-            else if (score>=0.300) return keys;
-            else if (score>=0.00) return keya;
         }
-        return true;
-    }
+        
+        function cola_keydown() {
 
-    function vis_by_link_score(score)
-    {
-        if (isNumber(score))
+        console.log("cola");
+
+
+        if (d3.event.keyCode==32) {  cola_force.stop();}
+        else if (d3.event.keyCode>=48 && d3.event.keyCode<=90 && !d3.event.ctrlKey && !d3.event.altKey && !d3.event.metaKey)
         {
-            if (score>=2.000) return keyh;
-            else if (score>=1.800) return keyg;
-            else if (score>=1.5) return keyf;
-            else if (score>=1.0) return keyd;
-            else if (score>=0.300) return keys;
-            else if (score>=0.00) return keya;
+            switch (String.fromCharCode(d3.event.keyCode)) {
+
+                case "Z": keyz = !keyz; console.log("case Z");break;
+                case "S": keyb = !keyb; break;
+                case "C": keyc = !keyc; break;
+                case "R": keyv = !keyv; break;
+                case "X": keyb = !keyb; break;
+                case "D": keyq = !keyq; break;
+
+
+                case "A": keya = !keya; console.log("case A");break;
+                case "S": keys = !keys; console.log("case S");break;
+                case "D": keyd = !keyd; console.log("case D");break;
+                case "F": keyf = !keyf; console.log("case F");break;
+                case "G": keyg = !keyg; console.log("case G");break;
+                case "H": keyh = !keyh; console.log("case H");break;
+
+                case "1": key1 = !key1; break;
+                case "2": key2 = !key2; break;
+                case "3": key3 = !key3; break;
+                case "0": key0 = !key0; break;
+
+            }
+            
+            cola_link.style("display", function(d) {
+
+                var flag  = vis_by_type(d.source.type)&&vis_by_type(d.target.type)&&vis_by_node_score(d.source.score)&&vis_by_node_score(d.target.score)&&vis_by_link_score(d.score);
+                cola_linkedByIndex[d.source.index + "," + d.target.index] = flag;
+                
+                return flag?"inline":"none";
+            });
+
+            cola_node.style("display", function(d) {
+    // 
+                return (key0||cola_hasConnections(d))&&vis_by_type(d.type)&&vis_by_node_score(d.score)?"inline":"none";
+            });
+
+
+            cola_text.style("display", function(d) {
+
+                return (key0||cola_hasConnections(d))&&vis_by_type(d.type)&&vis_by_node_score(d.score)?"inline":"none";
+            });
+                
+            if (cola_highlight_node !== null)
+            {
+                if ((key0||cola_hasConnections(cola_highlight_node))&&vis_by_type(cola_highlight_node.type)&&vis_by_node_score(cola_highlight_node.score)) { 
+                    if (cola_focus_node!==null) cola_set_focus(cola_focus_node);
+                    cola_set_highlight(cola_highlight_node);
+                }
+                else {cola_exit_highlight();}
+            }
+        }	
         }
-        return true;
-    }
+        
 
-    function isNumber(n) {
-        return !isNaN(parseFloat(n)) && isFinite(n);
-    }	
+        function vis_by_type(type)
+        {
+        switch (type) {
+            case "circle": return keyz;
+            case "square": return keyb;
+            case "triangle-up": return keyc;
+            case "diamond": return keyv;
+            case "cross": return keyb;
+            case "triangle-down": return keyq;
+            default: return true;
+        }
+        }
+
+        function vis_by_node_score(score)
+        {
+            if (isNumber(score))
+            {
+                if (score>=2.000) return keyh;
+                else if (score>=1.800) return keyg;
+                else if (score>=1.5) return keyf;
+                else if (score>=1.0) return keyd;
+                else if (score>=0.300) return keys;
+                else if (score>=0.00) return keya;
+            }
+            return true;
+        }
+
+        function vis_by_link_score(score)
+        {
+            if (isNumber(score))
+            {
+                if (score>=2.000) return keyh;
+                else if (score>=1.800) return keyg;
+                else if (score>=1.5) return keyf;
+                else if (score>=1.0) return keyd;
+                else if (score>=0.300) return keys;
+                else if (score>=0.00) return keya;
+            }
+            return true;
+        }
+
+        function isNumber(n) {
+            return !isNaN(parseFloat(n)) && isFinite(n);
+        }	
+
+
+
+        /* ------- ass2 cinemon common  -------*/
+
+        var pie = d3.layout.pie()
+            .sort(null)
+            .value(function(d) {
+                return d.value;
+            });
+
+        var color_pie = d3.scale.ordinal()
+            .domain(["Positive", "Neutral", "Negative"])
+            .range(["#2ed573", "#a4b0be", "#ff4757"]);
+
+        var key = function(d){ return d.data.label; };
+
+
+        /* ------- ass2 PIE common -------*/
+
+        /* ------- ass2 cinemon PIE  stary-------*/
+
+
+        var Cinemon_pie = d3.select(".cola_cinamon")
+            .append("g");                  
+
+        Cinemon_pie.append("g")
+            .attr("class", "slices");
+        Cinemon_pie.append("g")
+            .attr("class", "labels");
+
+        Cinemon_pie.append("g")
+            .attr("class", "lines");
+            
+        var C_pie_title = Cinemon_pie.append("g")
+                        .attr("class", "title");
+
+        C_pie_title.append("text")
+                .attr("class", "month");
+
+        C_pie_title.append("text")
+                .attr("class", "t_value");
+
+
+        var cinemon_w = 300
+            cinemon_h = 300;
+        var radius = Math.min(cinemon_w, cinemon_h) / 2;
+
+
+        var data1 = [{label: "Positive", value:43.6 ,tweets : 413.8}, {label: "Neutral", value:30.1, tweets : 285.7}, {label: "Negative", value:26.2, tweets : 248.6}];
+        var tweet1 = {month: "November", value:949};
+        var data2 = [{label: "Positive", value:44.7, tweets : 295.0}, {label: "Neutral", value:29.5, tweets : 194.7}, {label: "Negative", value:25.8, tweets : 170.3}];
+        var tweet2 = {month: "December", value:660};
 
 
 
 
+        var arc = d3.svg.arc()
+            .outerRadius(radius * 0.8)
+            .innerRadius(radius * 0.4);
 
+        var outerArc = d3.svg.arc()
+            .innerRadius(radius * 0.9)
+            .outerRadius(radius * 0.9);
+
+        // Cinemon_pie.attr("transform", "translate(" + cinemon_w/ 2 + "," + cinemon_h/ 2 + ")");
+        Cinemon_pie.attr("transform", "translate(" + 275 + "," + cinemon_h/ 5*4 + ")");
+
+
+
+
+        
+        change(data1,tweet1);
+
+        d3.select(".data_nov")
+            .on("click", function(){
+                change(data1,tweet1);
+            });
+
+        d3.select(".data_dec")
+            .on("click", function(){
+                change(data2,tweet2);
+            });
+
+        function change(data , tweet) {
+            
+            /* ------- PIE middile -------*/
+            var title_month =  Cinemon_pie.select(".title").select(".month")
+                                // .data(tweet)
+                                // .enter()
+                                .transition().duration(2000)
+
+                                .text(tweet.month)
+                                .attr("transform", "translate(" + (-radius/6-10) + "," + (0) + ")")
+            
+                                // .attr("class", "title")
+            var title_value =  Cinemon_pie.select(".title").select(".t_value")
+                                // .data(tweet)
+                                // .enter()
+                                // .append("text")
+                                .transition().duration(2000)
+                                .text(tweet.value + " tweets")
+                                .attr("transform", "translate(" + (-radius/6-10) + "," + (20) + ")")
+
+
+
+            // title_month.exit()
+            //     .remove();
+            // title_value.exit()
+            //     .remove();
+
+            print(data);
+            /* ------- PIE SLICES -------*/
+            var slice = Cinemon_pie.select(".slices").selectAll("path.slice")
+                .data(pie(data), key);
+
+            slice.enter()
+                .insert("path")
+                .style("fill", function(d) { return color_pie(d.data.label); })
+                .attr("class", "slice");
+
+            slice		
+                .transition().duration(1000)
+                .attrTween("d", function(d) {
+                    this._current = this._current || d;
+                    var interpolate = d3.interpolate(this._current, d);
+                    this._current = interpolate(0);
+                    return function(t) {
+                        return arc(interpolate(t));
+                    };
+                })
+
+            slice.exit()
+                .remove();
+
+            /* ------- TEXT LABELS -------*/
+
+            function midAngle(d){
+                return d.startAngle + (d.endAngle - d.startAngle)/2;
+            }
+            
+
+            var text = Cinemon_pie.select(".labels").selectAll(".pie_status")
+                .data(pie(data), key);
+
+            text.enter()
+                .append("text")
+                .attr("class", "pie_status")
+                .attr("dy", ".20em")
+                // .text(function(d) {
+                // 	return (d.data.label + "   " + d.data.value);
+                // });
+
+            text.transition().duration(1000)
+                .attrTween("transform", function(d) {
+                    this._current = this._current || d;
+                    var interpolate = d3.interpolate(this._current, d);
+                    this._current = interpolate(0);
+                    return function(t) {
+                        var d2 = interpolate(t);
+                        var pos = outerArc.centroid(d2);
+                        pos[0] = radius * (midAngle(d2) < Math.PI ? 1 : -1);
+                        return "translate("+ pos +")";
+                    };
+                })
+                .styleTween("text-anchor", function(d){
+                    this._current = this._current || d;
+                    var interpolate = d3.interpolate(this._current, d);
+                    this._current = interpolate(0);
+                    return function(t) {
+                        var d2 = interpolate(t);
+                        return midAngle(d2) < Math.PI ? "start":"end";
+                    };
+                })        
+                .text(function(d) {
+                    return (d.data.label + "   |   " + d.data.value + "%");
+                });
+
+
+
+            var tweet_amount = Cinemon_pie.select(".labels").selectAll(".tweet_count")
+                .data(pie(data), key);
+
+
+            tweet_amount.enter()
+                .append("text")
+                .attr("class","tweet_count")
+                .attr("dy", ".20em")
+            // .text(function(d) {
+            // 	return (d.data.label + "   " + d.data.value);
+            // });
+
+            tweet_amount.transition().duration(1000)
+                .attrTween("transform", function(d) {
+                    this._current = this._current || d;
+                    var interpolate = d3.interpolate(this._current, d);
+                    this._current = interpolate(0);
+                    return function(t) {
+                        var d2 = interpolate(t);
+                        var pos = outerArc.centroid(d2);
+                        pos[0] = radius * (midAngle(d2) < Math.PI ? 1 : -1);
+                        pos[1] = pos[1] + 20;
+                        return "translate("+ pos +")";
+                    };
+                })
+                .styleTween("text-anchor", function(d){
+                    this._current = this._current || d;
+                    var interpolate = d3.interpolate(this._current, d);
+                    this._current = interpolate(0);
+                    return function(t) {
+                        var d2 = interpolate(t);
+                        return midAngle(d2) < Math.PI ? "start":"end";
+                    };
+                })        
+                .text(function(d) {
+                    return (d.data.tweets + "  Tweets");
+                });
+
+
+            text.exit()
+                .remove();
+            tweet_amount.exit()
+                .remove();
+
+            /* ------- SLICE TO TEXT POLYLINES -------*/
+
+            var polyline = Cinemon_pie.select(".lines").selectAll("polyline")
+                .data(pie(data), key);
+            
+            polyline.enter()
+                .append("polyline");
+
+            polyline.transition().duration(1000)
+                .attrTween("points", function(d){
+                    this._current = this._current || d;
+                    var interpolate = d3.interpolate(this._current, d);
+                    this._current = interpolate(0);
+                    return function(t) {
+                        var d2 = interpolate(t);
+                        var pos = outerArc.centroid(d2);
+                        pos[0] = radius * 0.95 * (midAngle(d2) < Math.PI ? 1 : -1);
+                        return [arc.centroid(d2), outerArc.centroid(d2), pos];
+                    };			
+                });
+            
+            polyline.exit()
+                .remove();
+        };
+
+
+
+
+        /* ------- ass2 cinemon PIE   end-------*/
+        /* ------- ass2 tsa cola PIE  start-------*/
+
+
+
+        var cola_tsa_pie = d3.select(".cola_tsa")
+            .append("g");                  
+
+        cola_tsa_pie.append("g")
+            .attr("class", "slices");
+        cola_tsa_pie.append("g")
+            .attr("class", "labels");
+
+        cola_tsa_pie.append("g")
+            .attr("class", "lines");
+            
+        var Cola_tsa_pie_title = cola_tsa_pie.append("g")
+                        .attr("class", "title");
+
+        Cola_tsa_pie_title.append("text")
+                .attr("class", "month");
+
+        Cola_tsa_pie_title.append("text")
+                .attr("class", "t_value");
+
+        var cola_tsa_w = 300
+            cola_tsa_h = 300;
+        var cola_tsa_radius = Math.min(cola_tsa_w, cola_tsa_h) / 2;
+
+
+        var cola_tsa_data1 = [{label: "Positive", value:40.2 ,tweets : 21625.2}, {label: "Neutral", value:35.1, tweets : 18881.7}, {label: "Negative", value:24.7, tweets : 13287.1}];
+        var cola_tsa_tweet1 = {month: "November", value:53794};
+        var cola_tsa_data2 = [{label: "Positive", value:40.2, tweets : 22077.8}, {label: "Neutral", value:35.1, tweets : 19276.9}, {label: "Negative", value:24.7, tweets : 13565.3}];
+        var cola_tsa_tweet2 = {month: "December", value:54920};
+
+
+        var cola_tsa_arc = d3.svg.arc()
+            .outerRadius(cola_tsa_radius * 0.8)
+            .innerRadius(cola_tsa_radius * 0.4);
+
+        var cola_tsa_outerArc = d3.svg.arc()
+            .innerRadius(cola_tsa_radius * 0.9)
+            .outerRadius(cola_tsa_radius * 0.9);
+
+        // Cinemon_pie.attr("transform", "translate(" + cinemon_w/ 2 + "," + cinemon_h/ 2 + ")");
+        cola_tsa_pie.attr("transform", "translate(" + 275 + "," + cola_tsa_h/ 5*4 + ")");
+
+        
+        cola_tsa_change(cola_tsa_data1, cola_tsa_tweet1);
+
+        d3.select(".cola_tsa_data_nov")
+            .on("click", function(){
+                cola_tsa_change(cola_tsa_data1, cola_tsa_tweet1);
+            });
+
+        d3.select(".cola_tsa_data_dec")
+            .on("click", function(){
+                cola_tsa_change(cola_tsa_data2, cola_tsa_tweet2);
+            });
+
+        function cola_tsa_change(data , tweet) {
+            
+            /* ------- PIE middile -------*/
+            var cola_tsa_title_month =  cola_tsa_pie.select(".title").select(".month")
+                                // .data(tweet)
+                                // .enter()
+                                .transition().duration(2000)
+
+                                .text(tweet.month)
+                                .attr("transform", "translate(" + (-cola_tsa_radius/6-10) + "," + (0) + ")")
+            
+                                // .attr("class", "title")
+            var cola_tsa_title_value =  cola_tsa_pie.select(".title").select(".t_value")
+                                // .data(tweet)
+                                // .enter()
+                                // .append("text")
+                                .transition().duration(2000)
+                                .text(tweet.value + " tweets")
+                                .attr("transform", "translate(" + (-cola_tsa_radius/6-25) + "," + (20) + ")")
+
+
+
+            /* ------- PIE SLICES -------*/
+
+            var cola_tsa_slice = cola_tsa_pie.select(".slices").selectAll("path.slice")
+                .data(pie(data), key);
+
+            cola_tsa_slice.enter()
+                .insert("path")
+                .style("fill", function(d) { return color_pie(d.data.label); })
+                .attr("class", "slice");
+
+            cola_tsa_slice		
+                .transition().duration(1000)
+                .attrTween("d", function(d) {
+                    this._current = this._current || d;
+                    var interpolate = d3.interpolate(this._current, d);
+                    this._current = interpolate(0);
+                    return function(t) {
+                        return cola_tsa_arc(interpolate(t));
+                    };
+                })
+
+            cola_tsa_slice.exit()
+                .remove();
+
+            /* ------- TEXT LABELS -------*/
+
+            function midAngle(d){
+                return d.startAngle + (d.endAngle - d.startAngle)/2;
+            }
+            
+
+            var cola_tsa_text = cola_tsa_pie.select(".labels").selectAll(".pie_status")
+                .data(pie(data), key);
+
+            cola_tsa_text.enter()
+                .append("text")
+                .attr("class", "pie_status")
+                .attr("dy", ".20em")
+                // .text(function(d) {
+                // 	return (d.data.label + "   " + d.data.value);
+                // });
+
+            cola_tsa_text.transition().duration(1000)
+                .attrTween("transform", function(d) {
+                    this._current = this._current || d;
+                    var interpolate = d3.interpolate(this._current, d);
+                    this._current = interpolate(0);
+                    return function(t) {
+                        var d2 = interpolate(t);
+                        var pos = cola_tsa_outerArc.centroid(d2);
+                        pos[0] = radius * (midAngle(d2) < Math.PI ? 1 : -1);
+                        return "translate("+ pos +")";
+                    };
+                })
+                .styleTween("text-anchor", function(d){
+                    this._current = this._current || d;
+                    var interpolate = d3.interpolate(this._current, d);
+                    this._current = interpolate(0);
+                    return function(t) {
+                        var d2 = interpolate(t);
+                        return midAngle(d2) < Math.PI ? "start":"end";
+                    };
+                })        
+                .text(function(d) {
+                    return (d.data.label + "   |   " + d.data.value + "%");
+                });
+
+
+
+            var cola_tsa_tweet_amount = cola_tsa_pie.select(".labels").selectAll(".tweet_count")
+                .data(pie(data), key);
+
+
+            cola_tsa_tweet_amount.enter()
+                .append("text")
+                .attr("class","tweet_count")
+                .attr("dy", ".20em")
+            // .text(function(d) {
+            // 	return (d.data.label + "   " + d.data.value);
+            // });
+
+            cola_tsa_tweet_amount.transition().duration(1000)
+                .attrTween("transform", function(d) {
+                    this._current = this._current || d;
+                    var interpolate = d3.interpolate(this._current, d);
+                    this._current = interpolate(0);
+                    return function(t) {
+                        var d2 = interpolate(t);
+                        var pos = outerArc.centroid(d2);
+                        pos[0] = radius * (midAngle(d2) < Math.PI ? 1 : -1);
+                        pos[1] = pos[1] + 20;
+                        return "translate("+ pos +")";
+                    };
+                })
+                .styleTween("text-anchor", function(d){
+                    this._current = this._current || d;
+                    var interpolate = d3.interpolate(this._current, d);
+                    this._current = interpolate(0);
+                    return function(t) {
+                        var d2 = interpolate(t);
+                        return midAngle(d2) < Math.PI ? "start":"end";
+                    };
+                })        
+                .text(function(d) {
+                    return (d.data.tweets + "  Tweets");
+                });
+
+
+            cola_tsa_text.exit()
+                .remove();
+            cola_tsa_tweet_amount.exit()
+                .remove();
+
+            /* ------- SLICE TO TEXT POLYLINES -------*/
+
+            var cola_tsa_polyline = cola_tsa_pie.select(".lines").selectAll("polyline")
+                .data(pie(data), key);
+            
+            cola_tsa_polyline.enter()
+                .append("polyline");
+
+            cola_tsa_polyline.transition().duration(1000)
+                .attrTween("points", function(d){
+                    this._current = this._current || d;
+                    var interpolate = d3.interpolate(this._current, d);
+                    this._current = interpolate(0);
+                    return function(t) {
+                        var d2 = interpolate(t);
+                        var pos = cola_tsa_outerArc.centroid(d2);
+                        pos[0] = cola_tsa_radius * 0.95 * (midAngle(d2) < Math.PI ? 1 : -1);
+                        return [cola_tsa_arc.centroid(d2), cola_tsa_outerArc.centroid(d2), pos];
+                    };			
+                });
+            
+            cola_tsa_polyline.exit()
+                .remove();
+        };
+
+
+        /* ------- ass2 tsa cola PIE  end-------*/
+        /* ------- ass2 tsa pepsi PIE start-------*/
+
+
+
+
+        var pepsi_tsa_pie = d3.select(".pepsi_tsa")
+            .append("g");                  
+
+        pepsi_tsa_pie.append("g")
+            .attr("class", "slices");
+        pepsi_tsa_pie.append("g")
+            .attr("class", "labels");
+
+        pepsi_tsa_pie.append("g")
+            .attr("class", "lines");
+            
+        var Cola_tsa_pie_title = pepsi_tsa_pie.append("g")
+                        .attr("class", "title");
+
+        Cola_tsa_pie_title.append("text")
+                .attr("class", "month");
+
+        Cola_tsa_pie_title.append("text")
+                .attr("class", "t_value");
+
+        var pepsi_tsa_w = 300
+            pepsi_tsa_h = 300;
+        var pepsi_tsa_radius = Math.min(pepsi_tsa_w, pepsi_tsa_h) / 2;
+
+
+        var pepsi_tsa_data1 = [{label: "Positive", value:40.1 ,tweets : 96455.3}, {label: "Neutral", value:35.4, tweets : 85141.2}, {label: "Negative", value:24.5, tweets : 58925.4}];
+        var pepsi_tsa_tweet1 = {month: "November", value:240512};
+        var pepsi_tsa_data2 = [{label: "Positive", value:40.2, tweets : 95045.3}, {label: "Neutral", value:35.1, tweets : 82987.3}, {label: "Negative", value:24.7, tweets : 58398.5}];
+        var pepsi_tsa_tweet2 = {month: "December", value:236431};
+
+
+        var pepsi_tsa_arc = d3.svg.arc()
+            .outerRadius(pepsi_tsa_radius * 0.8)
+            .innerRadius(pepsi_tsa_radius * 0.4);
+
+        var pepsi_tsa_outerArc = d3.svg.arc()
+            .innerRadius(pepsi_tsa_radius * 0.9)
+            .outerRadius(pepsi_tsa_radius * 0.9);
+
+        // Cinemon_pie.attr("transform", "translate(" + cinemon_w/ 2 + "," + cinemon_h/ 2 + ")");
+        pepsi_tsa_pie.attr("transform", "translate(" + 275 + "," + pepsi_tsa_h/ 5*4 + ")");
+
+        
+        pepsi_tsa_change(pepsi_tsa_data1, pepsi_tsa_tweet1);
+
+        d3.select(".pepsi_tsa_data_nov")
+            .on("click", function(){
+                pepsi_tsa_change(pepsi_tsa_data1, pepsi_tsa_tweet1);
+            });
+
+        d3.select(".pepsi_tsa_data_dec")
+            .on("click", function(){
+                pepsi_tsa_change(pepsi_tsa_data2, pepsi_tsa_tweet2);
+            });
+
+        function pepsi_tsa_change(data , tweet) {
+            
+            /* ------- PIE middile -------*/
+            var pepsi_tsa_title_month =  pepsi_tsa_pie.select(".title").select(".month")
+                                // .data(tweet)
+                                // .enter()
+                                .transition().duration(2000)
+
+                                .text(tweet.month)
+                                .attr("transform", "translate(" + (-pepsi_tsa_radius/6-10) + "," + (0) + ")")
+            
+                                // .attr("class", "title")
+            var pepsi_tsa_title_value =  pepsi_tsa_pie.select(".title").select(".t_value")
+                                // .data(tweet)
+                                // .enter()
+                                // .append("text")
+                                .transition().duration(2000)
+                                .text(tweet.value + " tweets")
+                                .attr("transform", "translate(" + (-pepsi_tsa_radius/6-25) + "," + (20) + ")")
+
+
+
+            /* ------- PIE SLICES -------*/
+
+            var pepsi_tsa_slice = pepsi_tsa_pie.select(".slices").selectAll("path.slice")
+                .data(pie(data), key);
+
+            pepsi_tsa_slice.enter()
+                .insert("path")
+                .style("fill", function(d) { return color_pie(d.data.label); })
+                .attr("class", "slice");
+
+            pepsi_tsa_slice		
+                .transition().duration(1000)
+                .attrTween("d", function(d) {
+                    this._current = this._current || d;
+                    var interpolate = d3.interpolate(this._current, d);
+                    this._current = interpolate(0);
+                    return function(t) {
+                        return pepsi_tsa_arc(interpolate(t));
+                    };
+                })
+
+            pepsi_tsa_slice.exit()
+                .remove();
+
+            /* ------- TEXT LABELS -------*/
+
+            function midAngle(d){
+                return d.startAngle + (d.endAngle - d.startAngle)/2;
+            }
+            
+
+            var pepsi_tsa_text = pepsi_tsa_pie.select(".labels").selectAll(".pie_status")
+                .data(pie(data), key);
+
+            pepsi_tsa_text.enter()
+                .append("text")
+                .attr("class", "pie_status")
+                .attr("dy", ".20em")
+                // .text(function(d) {
+                // 	return (d.data.label + "   " + d.data.value);
+                // });
+
+            pepsi_tsa_text.transition().duration(1000)
+                .attrTween("transform", function(d) {
+                    this._current = this._current || d;
+                    var interpolate = d3.interpolate(this._current, d);
+                    this._current = interpolate(0);
+                    return function(t) {
+                        var d2 = interpolate(t);
+                        var pos = pepsi_tsa_outerArc.centroid(d2);
+                        pos[0] = radius * (midAngle(d2) < Math.PI ? 1 : -1);
+                        return "translate("+ pos +")";
+                    };
+                })
+                .styleTween("text-anchor", function(d){
+                    this._current = this._current || d;
+                    var interpolate = d3.interpolate(this._current, d);
+                    this._current = interpolate(0);
+                    return function(t) {
+                        var d2 = interpolate(t);
+                        return midAngle(d2) < Math.PI ? "start":"end";
+                    };
+                })        
+                .text(function(d) {
+                    return (d.data.label + "   |   " + d.data.value + "%");
+                });
+
+
+
+            var pepsi_tsa_tweet_amount = pepsi_tsa_pie.select(".labels").selectAll(".tweet_count")
+                .data(pie(data), key);
+
+
+            pepsi_tsa_tweet_amount.enter()
+                .append("text")
+                .attr("class","tweet_count")
+                .attr("dy", ".20em")
+            // .text(function(d) {
+            // 	return (d.data.label + "   " + d.data.value);
+            // });
+
+            pepsi_tsa_tweet_amount.transition().duration(1000)
+                .attrTween("transform", function(d) {
+                    this._current = this._current || d;
+                    var interpolate = d3.interpolate(this._current, d);
+                    this._current = interpolate(0);
+                    return function(t) {
+                        var d2 = interpolate(t);
+                        var pos = outerArc.centroid(d2);
+                        pos[0] = radius * (midAngle(d2) < Math.PI ? 1 : -1);
+                        pos[1] = pos[1] + 20;
+                        return "translate("+ pos +")";
+                    };
+                })
+                .styleTween("text-anchor", function(d){
+                    this._current = this._current || d;
+                    var interpolate = d3.interpolate(this._current, d);
+                    this._current = interpolate(0);
+                    return function(t) {
+                        var d2 = interpolate(t);
+                        return midAngle(d2) < Math.PI ? "start":"end";
+                    };
+                })        
+                .text(function(d) {
+                    return (d.data.tweets + "  Tweets");
+                });
+
+
+            pepsi_tsa_text.exit()
+                .remove();
+            pepsi_tsa_tweet_amount.exit()
+                .remove();
+
+            /* ------- SLICE TO TEXT POLYLINES -------*/
+
+            var pepsi_tsa_polyline = pepsi_tsa_pie.select(".lines").selectAll("polyline")
+                .data(pie(data), key);
+            
+            pepsi_tsa_polyline.enter()
+                .append("polyline");
+
+            pepsi_tsa_polyline.transition().duration(1000)
+                .attrTween("points", function(d){
+                    this._current = this._current || d;
+                    var interpolate = d3.interpolate(this._current, d);
+                    this._current = interpolate(0);
+                    return function(t) {
+                        var d2 = interpolate(t);
+                        var pos = pepsi_tsa_outerArc.centroid(d2);
+                        pos[0] = pepsi_tsa_radius * 0.95 * (midAngle(d2) < Math.PI ? 1 : -1);
+                        return [pepsi_tsa_arc.centroid(d2), pepsi_tsa_outerArc.centroid(d2), pos];
+                    };			
+                });
+            
+            pepsi_tsa_polyline.exit()
+                .remove();
+        };
+
+        /* ------- ass2 tsa pepsi PIE  end-------*/
 
     </script>
 
